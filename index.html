@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RSVP - Zufaisa & Pieter</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #ffffff;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2, h3 {
+      text-align: center;
+      margin: 0.5rem 0;
+    }
+
+    .info {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #444;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0.75rem;
+      background-color: #007B55;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005f40;
+    }
+
+    .confirmation {
+      margin-top: 1rem;
+      color: green;
+      display: none;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Zufaisa Van Cooten & Pieter Bosmans</h1>
+    <h2>09 Augustus 2025</h2>
+    <div class="info">
+      <p><strong>Locatie:</strong> Venue 123</p>
+      <p><strong>Aanvang:</strong> 15:00</p>
+      <p><strong>Dresscode kleuren:</strong> beige, groen</p>
+    </div>
+
+    <form id="rsvpForm">
+      <input type="text" name="names" placeholder="Namen van aanwezigen" required>
+      <input type="number" name="guests" placeholder="Aantal personen" min="1" required>
+      <textarea name="remarks" placeholder="Dieetwensen of opmerkingen (optioneel)"></textarea>
+      <button type="submit">Verzend RSVP</button>
+    </form>
+
+    <div class="confirmation" id="confirmationMessage">
+      Bedankt voor je RSVP! 🎉 Een CSV-bestand is gegenereerd.
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const names = this.names.value;
+      const guests = this.guests.value;
+      const remarks = this.remarks.value;
+
+      const data = [
+        ['Namen', 'Aantal Personen', 'Opmerkingen'],
+        [names, guests, remarks]
+      ];
+
+      const csvContent = data.map(e => e.map(v => `"${v}"`).join(",")).join("\n");
+
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.setAttribute('href', URL.createObjectURL(blob));
+      link.setAttribute('download', 'rsvp.csv');
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      document.getElementById('confirmationMessage').style.display = 'block';
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
