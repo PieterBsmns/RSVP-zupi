@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: #f4f4f4; /* Light background */
+  /* Optional background image can be added here */
+  /* background-image: url('path/to/your/background-image.jpg'); */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.97); /* Slightly opaque white */
+  padding: 2rem 2.5rem;
+  border-radius: 0.75rem;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #333;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  color: #555;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.info {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.info p {
+  margin: 0.5rem 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Space between form elements */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  padding: 0.85rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  font-family: inherit; /* Use body font */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical; /* Allow vertical resizing only */
+}
+
+button {
+  padding: 0.9rem 1rem;
+  background-color: #007B55; /* Your green color */
+  color: white;
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  margin-top: 0.5rem; /* Space above button */
+}
+
+button:hover {
+  background-color: #005f40; /* Darker green on hover */
+}
+
+button:disabled {
+  background-color: #9dd2c3; /* Lighter green when disabled */
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Status messages (confirmation/error) */
+.status-message {
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  display: none; /* Hidden by default */
+  text-align: center;
+  font-weight: bold;
+}
+
+.confirmation {
+  color: #155724; /* Dark green text */
+  background-color: #d4edda; /* Light green background */
+  border: 1px solid #c3e6cb;
+}
+
+.error {
+  color: #721c24; /* Dark red text */
+  background-color: #f8d7da; /* Light red background */
+  border: 1px solid #f5c6cb;
+}
+
+/* Basic responsiveness */
+@media (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+  .container {
+    padding: 1.5rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+}
