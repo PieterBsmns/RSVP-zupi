@@ -38,8 +38,7 @@
             <h2>Praktische informatie</h2>
             <p><strong>Datum:</strong> 9 augustus 2025</p>
             <p><strong>Tijd:</strong> 15:00</p>
-            <p><strong>Venue:</strong> Utopia Heritage </p>
-            <p><strong>Adres:</strong> Anton Drachtenweg 164, Paramaribo </p>
+            <p><strong>Locatie:</strong> Venue 123, Gent</p>
         </div>
     </section>
     <section class="page page3">
@@ -49,7 +48,6 @@
             <div class="colors">
                 <div class="color-circle" style="background-color: #b39976;"></div>
                 <div class="color-circle" style="background-color: #8e998b;"></div>
-                <div class="color-circle" style="background-color: #6c7469;"></div>
             </div>
         </div>
     </section>
@@ -61,17 +59,16 @@
                     <input type="text" name="names" required>
                 </label>
                 <label>Aantal personen:
-                    <input type="number" name="count" min="1" required>
+                    <input type="number" name="count" min="1" max="3" required>
                 </label>
                 <label>Dieetwensen / Opmerkingen:
                     <textarea name="remarks"></textarea>
                 </label>
-                <!-- Optional hidden field for Formspree -->
                 <input type="hidden" name="_captcha" value="false">
                 <button type="submit">Bevestigen</button>
             </form>
             <p id="thanks" style="display:none;">Bedankt voor je antwoord!</p>
-            <p class="footer-message">Bedankt! We kijken ernaar uit om samen met jullie te vieren.</p>
+            <p class="footer-message">Bedankt! We kijken ernaar uit jullie te zien.</p>
         </div>
     </section>
     <script src="script.js"></script>
