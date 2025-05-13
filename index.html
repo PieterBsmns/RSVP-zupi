@@ -13,11 +13,24 @@
             <h1>Zufaisa & Pieter</h1>
             <p>Wij gaan trouwen!</p>
             <h2>09 Augustus 2025</h2>
-    <div class="countdown-wrapper">
-        <div class="countdown-circle" id="days">--</div>
-        <div class="countdown-circle" id="hours">--</div>
-        <div class="countdown-circle" id="minutes">--</div>
-    </div>
+            <div class="countdown-wrapper">
+                <div class="countdown-item">
+                    <div class="countdown-circle" id="days">--</div>
+                    <div class="countdown-label">dagen</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-circle" id="hours">--</div>
+                    <div class="countdown-label">uren</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-circle" id="minutes">--</div>
+                    <div class="countdown-label">minuten</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-circle" id="seconds">--</div>
+                    <div class="countdown-label">seconden</div>
+                </div>
+            </div>
         </div>
     </section>
     <section class="page page2">
@@ -41,7 +54,7 @@
     <section class="page page4">
         <div class="content">
             <h2>Bevestig je aanwezigheid</h2>
-            <form id="rsvp-form">
+            <form id="rsvp-form" action="https://formspree.io/f/xyzevqae" method="POST">
                 <label>Naam / Namen:
                     <input type="text" name="names" required>
                 </label>
@@ -51,9 +64,12 @@
                 <label>Dieetwensen / Opmerkingen:
                     <textarea name="remarks"></textarea>
                 </label>
+                <!-- Optional hidden field for Formspree -->
+                <input type="hidden" name="_captcha" value="false">
                 <button type="submit">Bevestigen</button>
             </form>
             <p id="thanks" style="display:none;">Bedankt voor je antwoord!</p>
+            <p class="footer-message">Bedankt! We kijken ernaar uit jullie te zien.</p>
         </div>
     </section>
     <script src="script.js"></script>
