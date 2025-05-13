@@ -36,47 +36,37 @@ h2 {
     width: 100%;
 }
 
-form {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-row-gap: 1rem;
-  grid-column-gap: 1.5rem;
-  align-items: center;
-}
-
-/* Elke form-groep vult één rij in het grid */
 .form-group {
-  display: contents; /* laat label en input in het parent grid vallen */
+    display: contents;
 }
 
-/* Labels rechts uitgelijnd, inputs links */
+form {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-row-gap: 1rem;
+    grid-column-gap: 1.5rem;
+    align-items: center;
+}
+
 label {
-  justify-self: end;
-  font-weight: bold;
-}
-
-/* Input en textarea vullen de tweede kolom */
-input, textarea {
-  justify-self: start;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Knop onderaan, beide kolommen in beslag nemend */
-button {
-  grid-column: 1 / -1;
-  justify-self: center;
-  margin-top: 1rem;
+    justify-self: end;
+    font-weight: bold;
 }
 
 input, textarea {
+    justify-self: start;
+    width: 100%;
     padding: 0.5em;
     font-size: 1em;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 button {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 1rem;
     background-color: #8e998b;
     color: white;
     padding: 0.75em;
