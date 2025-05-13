@@ -1,60 +1,56 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RSVP - Zufaisa & Pieter</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zufaisa & Pieter Trouwen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <div class="container">
-    <h1>Zufaisa Van Cooten & Pieter Bosmans</h1>
-    <h2>09 Augustus 2025</h2>
-    <div class="info">
-      <p><strong>Locatie:</strong> Utopia Heritage, Anton Drachtenweg 164 Paramaribo</p>
-      <p><strong>Aanvang:</strong> 15:00</p>
-    </div>
-
-    <!-- 
-      ACTION REQUIRED: 
-      1. Go to https://formspree.io/ and create a new form.
-      2. Set the recipient email to fam.bosmansvancooten@gmail.com during setup.
-      3. Replace YOUR_FORM_ID below with the unique ID Formspree gives you.
-    -->
-    <form id="rsvpForm" action="https://formspree.io/f/xyzevqae" method="POST">
-      
-      <div class="form-group">
-        <label for="names">Namen van aanwezigen:</label>
-        <input type="text" id="names" name="Namen" placeholder="bv. Jan en Marie Jansen" required>
-      </div>
-
-      <div class="form-group">
-        <label for="guests">Totaal aantal personen:</label>
-        <input type="number" id="guests" name="Aantal Personen" placeholder="max 5" min="1" max="5" required>
-      </div>
-
-      <div class="form-group">
-        <label for="remarks">Opmerkingen (optioneel):</label>
-        <textarea id="remarks" name="Opmerkingen" placeholder="bv. Komen later"></textarea>
-      </div>
-
-      <!-- Optional: Helps create a nice email subject line -->
-      <input type="hidden" name="_subject" value="Nieuwe RSVP van {{Namen}}">
-
-      <button type="submit" id="submitButton">Verzend RSVP</button>
-    </form>
-
-    <!-- Status Messages -->
-    <div class="status-message confirmation" id="confirmationMessage">
-      Bedankt voor je RSVP! We hebben je reactie ontvangen. 🎉
-    </div>
-    <div class="status-message error" id="errorMessage">
-      Oeps! Er is iets misgegaan bij het verzenden. Probeer het opnieuw of neem contact op.
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-
+    <section class="page page1">
+        <div class="content">
+            <h1>Zufaisa & Pieter</h1>
+            <p>Wij gaan trouwen!</p>
+            <h2>09 Augustus 2025</h2>
+        </div>
+    </section>
+    <section class="page page2">
+        <div class="content">
+            <h2>Praktische informatie</h2>
+            <p><strong>Datum:</strong> 9 augustus 2025</p>
+            <p><strong>Tijd:</strong> 15:00</p>
+            <p><strong>Locatie:</strong> Venue 123, Gent</p>
+        </div>
+    </section>
+    <section class="page page3">
+        <div class="content">
+            <h2>Dresscode</h2>
+            <p>Draag iets in de kleuren:</p>
+            <div class="colors">
+                <div class="color-circle" style="background-color: #b39976;"></div>
+                <div class="color-circle" style="background-color: #8e998b;"></div>
+            </div>
+        </div>
+    </section>
+    <section class="page page4">
+        <div class="content">
+            <h2>Bevestig je aanwezigheid</h2>
+            <form id="rsvp-form">
+                <label>Naam / Namen:
+                    <input type="text" name="names" required>
+                </label>
+                <label>Aantal personen:
+                    <input type="number" name="count" min="1" required>
+                </label>
+                <label>Dieetwensen / Opmerkingen:
+                    <textarea name="remarks"></textarea>
+                </label>
+                <button type="submit">Bevestigen</button>
+            </form>
+            <p id="thanks" style="display:none;">Bedankt voor je antwoord!</p>
+        </div>
+    </section>
+    <script src="script.js"></script>
 </body>
 </html>
