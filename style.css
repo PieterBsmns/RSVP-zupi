@@ -81,11 +81,16 @@ button {
     margin-top: 1.5em;
 }
 
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .countdown-circle {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: #b39976; /* beige kleur */
     color: white;
     font-size: 1.2em;
     font-weight: bold;
@@ -93,4 +98,19 @@ button {
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#days { background-color: #b39976; }
+#hours { background-color: #8e998b; }
+#minutes { background-color: #b39976; }
+#seconds { background-color: #8e998b; }
+
+.countdown-label {
+    margin-top: 0.5em;
+    font-size: 0.9em;
+}
+
+.footer-message {
+    margin-top: 2em;
+    font-style: italic;
 }
