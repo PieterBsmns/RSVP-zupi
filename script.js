@@ -6,13 +6,13 @@ function updateCountdown() {
   const weddingDate = new Date("2025-08-09T15:00:00").getTime();
   const now = Date.now();
   const diff = weddingDate - now;
-
   if (diff <= 0) {
     ["days","hours","minutes","seconds"].forEach(id => {
       document.getElementById(id).textContent = "0";
     });
     return;
   }
+
   const days    = Math.floor(diff / 86400000);
   const hours   = Math.floor((diff % 86400000) / 3600000);
   const minutes = Math.floor((diff % 3600000)  / 60000);
@@ -23,6 +23,7 @@ function updateCountdown() {
   document.getElementById("minutes").textContent = minutes;
   document.getElementById("seconds").textContent = seconds;
 }
+
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
@@ -50,12 +51,15 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("EmailJS error:", err);
       alert("Er ging iets mis bij het versturen. Probeer het nog eens.");
     }).finally(() => {
+
       submitBtn.disabled    = false;
       submitBtn.textContent = "Bevestigen";
     });
   });
 
+
   // Fade‐in op scroll
+
   const faders = document.querySelectorAll(".fade-in");
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
@@ -64,6 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
         obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.2, rootMargin: "0px 0px -10% 0px" });
+
+  }, {
+    threshold: 0.2,
+    rootMargin: "0px 0px -10% 0px"
+  });
+
   faders.forEach(el => observer.observe(el));
 });
