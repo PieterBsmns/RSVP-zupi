@@ -30,3 +30,24 @@ document.getElementById("rsvp-form").addEventListener("submit", function(e) {
 
 setInterval(updateCountdown, 1000);
 updateCountdown();
+
+// Selecteer alle elementen met fade-in
+const faders = document.querySelectorAll('.fade-in');
+
+// Maak een observer die een .visible-klasse toevoegt zodra in view
+const observerOptions = {
+  threshold: 0.2,    // 20% zichtbaar voordat animatie start
+  rootMargin: '0px 0px -10% 0px'  // laat de animatie iets eerder beginnen
+};
+
+const observer = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      obs.unobserve(entry.target); // optioneel: één keer animeren
+    }
+  });
+}, observerOptions);
+
+// Observeer elk fade-in element
+faders.forEach(el => observer.observe(el));
