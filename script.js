@@ -22,14 +22,27 @@ function updateCountdown() {
     document.getElementById("seconds").innerHTML = seconds;
 }
 
-document.getElementById("rsvp-form").addEventListener("submit", function(e) {
-    //e.preventDefault();
-    document.getElementById("thanks").style.display = "block";
-    this.reset();
-});
-
 setInterval(updateCountdown, 1000);
 updateCountdown();
+
+// EmailJS formulier-verzending
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById("rsvp-form");
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // Stuur formulier via EmailJS
+    emailjs.sendForm('service_j12dpb9', 'template_p45lme8', this)
+      .then(() => {
+        document.getElementById("thanks").style.display = 'block';
+        form.reset();
+      }, (err) => {
+        console.error('EmailJS fout:', err);
+        alert('Er ging iets mis bij het versturen. Probeer het nog eens.');
+      });
+  });
+});
+
 
 // Selecteer alle elementen met fade-in
 const faders = document.querySelectorAll('.fade-in');
