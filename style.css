@@ -149,8 +149,9 @@ button {
 /* Fade-in basisstijl */
 .fade-in {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(20px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
 }
 
 /* Zodra .visible toegevoegd wordt, speelt de animatie af */
