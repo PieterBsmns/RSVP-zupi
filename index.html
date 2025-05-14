@@ -9,9 +9,10 @@
 </head>
     
 <body>
-  <section class="photo-page fade-in">
+  <section class="photo-page">
     <img src="collage/ximage00002x.jpeg" alt="Intro Foto">
   </section>
+    
   <section class="page intro fade-in">
     <div class="content">
       <h1>Zufaisa & Pieter</h1>
@@ -38,9 +39,10 @@
     </div>
   </section>
 
-  <section class="photo-page fade-in">
+  <section class="photo-page">
     <img src="collage/ximage00002.jpeg" alt="Info Foto">
   </section>
+    
   <section class="page info fade-in">
     <div class="content">
       <h2>Praktische informatie</h2>
@@ -52,9 +54,10 @@
   </section>
 
 
-  <section class="photo-page fade-in">
+  <section class="photo-page">
     <img src="collage/ximage00005.jpeg" alt="Dresscode Foto">
   </section>
+    
   <section class="page dresscode fade-in">
     <div class="content">
       <h2>Dresscode</h2>
@@ -68,23 +71,24 @@
   </section>
 
 
-  <section class="photo-page fade-in">
+  <section class="photo-page">
     <img src="collage/ximage00003.jpeg" alt="RSVP Foto">
   </section>
+    
   <section class="page rsvp fade-in">
     <div class="content">
       <h2>Bevestig je aanwezigheid</h2>
       <form id="rsvp-form" action="https://formspree.io/f/xyzevqae" method="POST">
         <div class="form-group">
-          <label for="names">Naam / Namen:</label>
-          <input id="names" type="text" name="names" required placeholder="Bijv. Jan & Marie">
+          <label for="names">Naam:</label>
+          <input id="names" type="text" name="names" required placeholder="Bijv. Andre">
         </div>
         <div class="form-group">
           <label for="count">Aantal personen:</label>
           <input id="count" type="number" name="count" min="1" max="3" required placeholder="max 3">
         </div>
         <div class="form-group">
-          <label for="remarks">Dieetwensen / Opmerkingen:</label>
+          <label for="remarks">Opmerkingen:</label>
           <textarea id="remarks" name="remarks" placeholder="(optioneel)"></textarea>
         </div>
         <input type="hidden" name="_captcha" value="false">
