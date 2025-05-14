@@ -1,3 +1,6 @@
+// Debug: zie of script.js geladen wordt
+console.log("[Debug] script.js geladen");
+
 // === Countdown ===
 function updateCountdown() {
   const weddingDate = new Date("2025-08-09T15:00:00").getTime();
@@ -28,10 +31,14 @@ updateCountdown();
 
 // === EmailJS formulier-verzending & fade-in ===
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("[Debug] DOMContentLoaded");
   // 1) EmailJS-submit
   const form      = document.getElementById("rsvp-form");
+  console.log("[Debug] form gevonden:", form);
   const submitBtn = form.querySelector('button[type="submit"]');
+  console.log("[Debug] submitBtn:", submitBtn);
   const thanksMsg = document.getElementById("thanks");
+  console.log("[Debug] thanksMsg:", thanksMsg);
 
   form.addEventListener("submit", e => {
     e.preventDefault();
