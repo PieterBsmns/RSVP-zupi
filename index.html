@@ -95,13 +95,14 @@
     </div>
   </section>
 
-<!-- EmailJS SDK en init -->
-  <script src="https://cdn.emailjs.com/sdk/3.6.2/email.min.js"></script>
+  <!-- 1) EmailJS via jsDelivr -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
+    // Vervang door jouw echte Public Key uit EmailJS
     emailjs.init('U7x0W_K_fgyaWVT03');
   </script>
 
-  <!-- Jouw eigen script: countdown, EmailJS-submit & fade-in -->
+  <!-- 2) Jouw eigen script.js (countdown, EmailJS-sendForm, fade-in) -->
   <script src="script.js"></script>
 </body>
 </html>
