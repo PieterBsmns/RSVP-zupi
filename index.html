@@ -8,74 +8,90 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section class="page page1">
-        <div class="content">
-            <h1>Zufaisa & Pieter</h1>
-            <p>Wij gaan trouwen!</p>
-            <h2>09 Augustus 2025</h2>
-            <div class="countdown-wrapper">
-                <div class="countdown-item">
-                    <div class="countdown-circle" id="days">--</div>
-                    <div class="countdown-label">dagen</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-circle" id="hours">--</div>
-                    <div class="countdown-label">uren</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-circle" id="minutes">--</div>
-                    <div class="countdown-label">minuten</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-circle" id="seconds">--</div>
-                    <div class="countdown-label">seconden</div>
-                </div>
-            </div>
+  <section class="page intro">
+    <div class="content">
+      <h1>Zufaisa & Pieter</h1>
+      <p>Wij gaan trouwen!</p>
+      <h2>09 Augustus 2025</h2>
+      <div class="countdown-wrapper">
+        <div class="countdown-item">
+          <div class="countdown-circle" id="days">--</div>
+          <div class="countdown-label">dagen</div>
         </div>
-    </section>
-    <section class="page page2">
-        <div class="content">
-            <h2>Praktische informatie</h2>
-            <p><strong>Datum:</strong> 9 augustus 2025</p>
-            <p><strong>Tijd:</strong> 15:00</p>
-            <p><strong>Locatie:</strong> Utopia Heritage</p>
-            <p><strong>Adres:</strong> Anton Drachtenweg 164, Paramaribo</p>
+        <div class="countdown-item">
+          <div class="countdown-circle" id="hours">--</div>
+          <div class="countdown-label">uren</div>
         </div>
-    </section>
-    <section class="page page3">
-        <div class="content">
-            <h2>Dresscode</h2>
-            <p>Draag iets in de kleuren:</p>
-            <div class="colors">
-                <div class="color-circle" style="background-color: #b39976;"></div>
-                <div class="color-circle" style="background-color: #8e998b;"></div>
-                <div class="color-circle" style="background-color: #6c7469;"></div>
-            </div>
+        <div class="countdown-item">
+          <div class="countdown-circle" id="minutes">--</div>
+          <div class="countdown-label">minuten</div>
         </div>
-    </section>
-    <section class="page page4">
-        <div class="content">
-            <h2>Bevestig je aanwezigheid</h2>
-            <form id="rsvp-form" action="https://formspree.io/f/xyzevqae" method="POST">
-                <div class="form-group">
-                    <label for="names">Naam / Namen:</label>
-                    <input id="names" type="text" name="names" required placeholder="Bijv. Jan & Marie">
-                </div>
-                <div class="form-group">
-                    <label for="count">Aantal personen:</label>
-                    <input id="count" type="number" name="count" min="1" max="3" required placeholder="max 3">
-                </div>
-                <div class="form-group">
-                    <label for="remarks">Dieetwensen / Opmerkingen:</label>
-                    <textarea id="remarks" name="remarks" placeholder="(optioneel)"></textarea>
-                </div>
-                <input type="hidden" name="_captcha" value="false">
-                <button type="submit">Bevestigen</button>
-            </form>
-            <p id="thanks" style="display:none;">Bedankt voor je antwoord!</p>
-            <p class="footer-message">Bedankt! We kijken ernaar uit jullie te zien.</p>
+        <div class="countdown-item">
+          <div class="countdown-circle" id="seconds">--</div>
+          <div class="countdown-label">seconden</div>
         </div>
-    </section>
-    <script src="script.js"></script>
+      </div>
+    </div>
+  </section>
+  <section class="photo-page">
+    <img src="collage/ximage00002.jpeg" alt="Intro Foto">
+  </section>
+
+  <section class="page info">
+    <div class="content">
+      <h2>Praktische informatie</h2>
+      <p><strong>Datum:</strong> 9 augustus 2025</p>
+      <p><strong>Tijd:</strong> 15:00</p>
+      <p><strong>Locatie:</strong> Utopia Heritage</p>
+      <p><strong>Adres:</strong> Anton Drachtenweg 164, Paramaribo</p>
+    </div>
+  </section>
+  <section class="photo-page">
+    <img src="collage/ximage00002x.jpeg" alt="Info Foto">
+  </section>
+
+  <section class="page dresscode">
+    <div class="content">
+      <h2>Dresscode</h2>
+      <p>Draag iets in de kleuren:</p>
+      <div class="colors">
+        <div class="color-circle" style="background-color: #b39976;"></div>
+        <div class="color-circle" style="background-color: #8e998b;"></div>
+        <div class="color-circle" style="background-color: #6c7469;"></div>
+      </div>
+    </div>
+  </section>
+  <section class="photo-page">
+    <img src="collage/ximage00003.jpeg" alt="Dresscode Foto">
+  </section>
+
+  <section class="page rsvp">
+    <div class="content">
+      <h2>Bevestig je aanwezigheid</h2>
+      <form id="rsvp-form" action="https://formspree.io/f/xyzevqae" method="POST">
+        <div class="form-group">
+          <label for="names">Naam / Namen:</label>
+          <input id="names" type="text" name="names" required placeholder="Bijv. Jan & Marie">
+        </div>
+        <div class="form-group">
+          <label for="count">Aantal personen:</label>
+          <input id="count" type="number" name="count" min="1" max="3" required placeholder="max 3">
+        </div>
+        <div class="form-group">
+          <label for="remarks">Dieetwensen / Opmerkingen:</label>
+          <textarea id="remarks" name="remarks" placeholder="(optioneel)"></textarea>
+        </div>
+        <input type="hidden" name="_captcha" value="false">
+        <button type="submit">Bevestigen</button>
+      </form>
+      <p id="thanks" style="display:none;">Bedankt voor je antwoord!</p>
+      <p class="footer-message">Bedankt! We kijken ernaar uit jullie te zien.</p>
+    </div>
+  </section>
+  <section class="photo-page">
+    <img src="collage/ximage00005.jpeg" alt="RSVP Foto">
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
