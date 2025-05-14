@@ -146,3 +146,15 @@ button {
     margin-top: 2em;
     font-style: italic;
 }
+/* Fade-in basisstijl */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Zodra .visible toegevoegd wordt, speelt de animatie af */
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
