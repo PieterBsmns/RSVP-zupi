@@ -4,20 +4,19 @@ console.log("[Debug] script.js geladen");
 // === Countdown ===
 function updateCountdown() {
   const weddingDate = new Date("2025-08-09T15:00:00").getTime();
-  const now         = Date.now();
-  const distance    = weddingDate - now;
-
-  if (distance < 0) {
+  const now = Date.now();
+  const diff = weddingDate - now;
+  if (diff <= 0) {
     ["days","hours","minutes","seconds"].forEach(id => {
       document.getElementById(id).textContent = "0";
     });
     return;
   }
 
-  const days    = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours   = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60))      / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60))            / 1000);
+  const days    = Math.floor(diff / 86400000);
+  const hours   = Math.floor((diff % 86400000) / 3600000);
+  const minutes = Math.floor((diff % 3600000)  / 60000);
+  const seconds = Math.floor((diff % 60000)    / 1000);
 
   document.getElementById("days").textContent    = days;
   document.getElementById("hours").textContent   = hours;
@@ -28,44 +27,39 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-
-// === EmailJS formulier-verzending & fade-in ===
+// === EmailJS‐submit & Fade‐in ===
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("[Debug] DOMContentLoaded");
-  // 1) EmailJS-submit
+  // EmailJS‐submit
   const form      = document.getElementById("rsvp-form");
-  console.log("[Debug] form gevonden:", form);
   const submitBtn = form.querySelector('button[type="submit"]');
-  console.log("[Debug] submitBtn:", submitBtn);
   const thanksMsg = document.getElementById("thanks");
-  console.log("[Debug] thanksMsg:", thanksMsg);
 
   form.addEventListener("submit", e => {
-    e.preventDefault();
-    submitBtn.disabled     = true;
-    submitBtn.textContent  = "Verzenden…";
+    e.preventDefault();                       // voorkom default scroll-to-top
+    submitBtn.disabled    = true;
+    submitBtn.textContent = "Verzenden…";
     thanksMsg.style.display = "none";
 
     emailjs.sendForm(
-      'service_j12dpb9',     // jouw Service ID
-      'template_p45lme8',    // jouw Template ID
-      '#rsvp-form'           // of form element zelf
-    )
-    .then(() => {
+      'service_j12dpb9',    // jouw Service ID
+      'template_p45lme8',   // jouw Template ID
+      form                  // of '#rsvp-form'
+    ).then(() => {
       thanksMsg.style.display = "block";
       form.reset();
-    })
-    .catch(err => {
-      console.error("EmailJS fout:", err);
+    }).catch(err => {
+      console.error("EmailJS error:", err);
       alert("Er ging iets mis bij het versturen. Probeer het nog eens.");
-    })
-    .finally(() => {
+    }).finally(() => {
+
       submitBtn.disabled    = false;
       submitBtn.textContent = "Bevestigen";
     });
   });
 
-  // 2) Fade-in on scroll
+
+  // Fade‐in op scroll
+
   const faders = document.querySelectorAll(".fade-in");
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
@@ -74,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         obs.unobserve(entry.target);
       }
     });
+
   }, {
     threshold: 0.2,
     rootMargin: "0px 0px -10% 0px"
