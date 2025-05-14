@@ -74,7 +74,7 @@
   <section class="page rsvp">
     <div class="content">
       <h2>Bevestig je aanwezigheid</h2>
-      <form id="rsvp-form" action="https://formspree.io/f/xyzevqae" method="POST">
+      <form id="rsvp-form">
         <div class="form-group">
           <label for="names">Naam / Namen:</label>
           <input id="names" type="text" name="names" required placeholder="Bijv. Jan & Marie">
@@ -95,7 +95,8 @@
     </div>
   </section>
 
-
-  <script src="script.js"></script>
+  <!-- EmailJS SDK en init -->
+<script src="https://cdn.emailjs.com/sdk/3.6.2/email.min.js"></script>
+<script> emailjs.init('U7x0W_K_fgyaWVT03')</script>
 </body>
 </html>
