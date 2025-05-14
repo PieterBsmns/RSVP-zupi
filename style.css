@@ -3,6 +3,7 @@ body {
     font-family: 'Lora', serif;
     background-color: #efeeec;
     color: #333;
+     scroll-behavior: smooth; 
 }
 
 h1 {
@@ -16,7 +17,7 @@ h2 {
     margin-top: 0.5em;
 }
 
-.page {
+.page, .photo-page {
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -34,6 +35,19 @@ h2 {
 .content {
     max-width: 600px;
     width: 100%;
+}
+
+.photo-page { margin:0;
+              padding:0;
+              background:#000;
+              overflow:hidden; 
+}
+
+.photo-page img { width:100%;
+                  height:100%; 
+                  object-fit:cover;
+                  object-position:center;
+                  display:block; 
 }
 
 .form-group {
