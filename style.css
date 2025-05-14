@@ -10,11 +10,12 @@ html, body {
 h1 {
     font-family: 'Parisienne', cursive;
     font-size: 4em;
-    margin-bottom: 0;
+    line-height: 1.1;       /* houdt de regels mooi bij elkaar */
+    margin-bottom: 1rem;  /* ruimte onder de h1 */
 }
 
 h2 {
-    font-size: 1.8em;
+    font-size: 2em;
     margin-top: 0.5em;
 }
 
