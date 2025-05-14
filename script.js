@@ -29,7 +29,7 @@ updateCountdown();
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById("rsvp-form");
   form.addEventListener("submit", function(e) {
-    e.preventDefault();
+  // e.preventDefault();
 
     // Stuur formulier via EmailJS
     emailjs.sendForm('service_j12dpb9', 'template_p45lme8', this)
