@@ -147,6 +147,50 @@ button {
     margin-top: 2em;
     font-style: italic;
 }
+
+/* Nieuwe “program” pagina */
+.page.program {
+  background-color: #fefdfc;
+  padding: 2em;
+}
+
+.program-list {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0 2em;
+}
+
+.program-list li {
+  margin: 0.5em 0;
+  font-size: 1.1rem;
+}
+
+.program-list strong {
+  color: #8e998b;
+  margin-right: 0.5em;
+}
+
+.page.program .contact {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.page.program .contact a {
+  color: #8e998b;
+  text-decoration: none;
+}
+
+/* 18+ waarschuwing op de programma-pagina */
+.page.program .age-warning {
+  background-color: #fcefee;
+  border-left: 4px solid #b39976;
+  padding: 0.75em 1em;
+  margin: 1em 0;
+  font-style: italic;
+  color: #333;
+}
+
+
 /* Fade-in basisstijl */
 .fade-in {
   opacity: 0;
