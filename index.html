@@ -67,7 +67,7 @@
 
       <!-- Praktische info -->
       <p><strong>Datum:</strong> 9 augustus 2025</p>
-      <p><strong>Tijd:</strong> 15:00</p>
+      <p><strong>Tijd:</strong> 18:00</p>
       <p><strong>Locatie:</strong> Utopia Heritage</p>
       <p><strong>Adres:</strong> Anton Drachtenweg 164, Paramaribo</p>
 
@@ -90,6 +90,7 @@
     <img src="collage/ximage00002.jpeg" alt="Dresscode Foto">
   </section>
     
+<!-- Oude Dresscode sectie  
   <section class="page dresscode fade-in">
     <div class="content">
       <h1>Dresscode</h1>
@@ -101,36 +102,75 @@
       </div>
     </div>
   </section>
-
+-->
 
   <section class="photo-page">
     <img src="collage/ximage00002x.jpeg" alt="RSVP Foto">
   </section>
     
-  <section class="page rsvp fade-in">
-    <div class="content">
-      <h1>Bevestig je aanwezigheid</h1>
-      <form id="rsvp-form">
-        <div class="form-group">
-          <label for="names">Naam:</label>
-          <input id="names" type="text" name="names" required placeholder="Bijv. Andre">
-        </div>
-        <div class="form-group">
-          <label for="count">Aantal personen:</label>
-          <input id="count" type="number" name="count" min="1" max="3" required placeholder="max 3">
-        </div>
-        <div class="form-group">
-          <label for="remarks">Opmerkingen:</label>
-          <textarea id="remarks" name="remarks" placeholder="(optioneel)"></textarea>
-        </div>
-        <input type="hidden" name="_captcha" value="false">
-        <button type="submit">Bevestigen</button>
-      </form>
-      <p id="thanks" style="display:none;">U staat nu op de gastenlijst. <br>
-      Bedankt voor het bevestigen!</p>
-      <p class="footer-message">We kijken ernaar uit jullie te zien.</p>
-    </div>
-  </section>
+ <section class="page rsvp fade-in">
+  <div class="content">
+    <h1>Bevestig je aanwezigheid</h1>
+
+    <!-- Melding sluitingsdatum -->
+    <p class="closing-date">
+      ℹ️ De gastenlijst sluit op <strong>30 juni</strong>.
+    </p>
+
+    <form id="rsvp-form">
+      <div class="form-group">
+        <label for="names">Naam:</label>
+        <input
+          id="names"
+          name="names"
+          type="text"
+          required
+          placeholder="Bijv. André"
+        >
+      </div>
+
+      <div class="form-group">
+        <input
+          id="plusone"
+          name="plusone"
+          type="checkbox"
+        >
+        <label for="plusone">Breng ik +1 mee?</label>
+      </div>
+
+      <div class="form-group">
+        <label for="plusone-name">Naam van je +1:</label>
+        <input
+          id="plusone-name"
+          name="plusoneName"
+          type="text"
+          placeholder="Naam van je gast"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="remarks">Opmerkingen:</label>
+        <textarea
+          id="remarks"
+          name="remarks"
+          placeholder="(optioneel)"
+        ></textarea>
+      </div>
+
+      <input type="hidden" name="_captcha" value="false">
+      <button type="submit">Bevestigen</button>
+    </form>
+
+    <p id="thanks" style="display:none;">
+      U staat nu op de gastenlijst. <br>
+      Bedankt voor het bevestigen!
+    </p>
+    <p class="footer-message">
+      We kijken ernaar uit jullie te zien.
+    </p>
+  </div>
+</section>
+
     
 <section class="photo-page">
     <img src="collage/ximage00008.jpeg" alt="Programma foto">
