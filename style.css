@@ -229,3 +229,28 @@ button {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Samengevoegde Praktische Info & Dresscode pagina */
+.page.info-dresscode {
+  background-color: #ffffff;
+  padding: 2em;
+}
+
+.page.info-dresscode .divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 1.5em 0;
+}
+
+/* 18+ waarschuwing */
+.page.info-dresscode .age-warning {
+  background-color: #fcefee;
+  border-left: 4px solid #b39976;
+  padding: 0.75em 1em;
+  margin-bottom: 1em;
+  font-style: italic;
+  color: #333;
+}
+
+/* Praktische info en dresscode staan al gestyled via .content p en .colors */
+
