@@ -295,15 +295,11 @@ button {
 }
 
 .page.outro-eye h1 {
-  font-family: 'Great Vibes', cursive;
   font-size: 5.5rem;   /* net even wat kleiner dan intro, of pas zelf aan */
-  color: #8e998b;
   margin: 0;
 }
 
 .page.outro-eye p {
-  font-family: 'Lora', serif;
   font-size: 1.3rem;
   margin-top: 0.5em;
-  color: #555;
 }
