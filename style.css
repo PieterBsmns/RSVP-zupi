@@ -190,6 +190,33 @@ button {
   color: #333;
 }
 
+/* Eye-catcher Intro pagina */
+.page.intro-eye {
+  background-color: #ffffff;    /* kies een achtergrondkleur of een lichte overlay */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.page.intro-eye .content {
+  max-width: none;
+  width: 100%;
+  padding: 2em;
+}
+
+.page.intro-eye h1 {
+  font-family: 'Great Vibes', cursive;  /* of een ander script-font naar keuze */
+  font-size: 6rem;                      /* lekker groot, pas aan naar wens */
+  line-height: 1;
+  color: #8e998b;                       /* accentkleur */
+  margin: 0;
+}
+
+/* Fade-in blijft werken zoals voorheen */
+
 
 /* Fade-in basisstijl */
 .fade-in {
