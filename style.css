@@ -6,6 +6,10 @@ html, body {
     color: #333;
      scroll-behavior: smooth; 
 }
+p {
+  font-size: 1.25rem;    /* vergroot van de standaard 1rem naar 1.2rem */
+  line-height: 1.6;     /* iets meer witruimte tussen regels */
+}
 
 h1 {
     font-family: 'Parisienne', cursive;
