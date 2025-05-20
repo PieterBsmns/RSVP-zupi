@@ -208,7 +208,6 @@ button {
 }
 
 .page.intro-eye h1 {
-  font-family: 'Great Vibes', cursive;  /* of een ander script-font naar keuze */
   font-size: 6rem;                      /* lekker groot, pas aan naar wens */
   line-height: 1;
   color: #8e998b;                       /* accentkleur */
@@ -221,7 +220,7 @@ button {
 /* Fade-in basisstijl */
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(30px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   will-change: opacity, transform;
 }
