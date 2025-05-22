@@ -316,3 +316,16 @@ button {
   font-size: 1.3rem;
   margin-top: 0.5em;
 }
+
+/* Linkslijn-uitlijning voor zowel program- als info-pagina */
+.page.program,
+.page.info {
+  justify-content: flex-start;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.page.program .content,
+.page.info .content {
+  text-align: left;
+}
