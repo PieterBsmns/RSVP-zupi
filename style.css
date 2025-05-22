@@ -224,6 +224,10 @@ button {
   color: #8e998b;
 }
 
+/* Alleen op de countdown-pagina (intro) het h1 1rem groter */
+.page.intro h1 {
+  font-size: 6rem; /* was 5rem, nu +1rem */
+}
 /* Fade-in blijft werken zoals voorheen */
 
 
@@ -263,17 +267,19 @@ button {
   color: #333;
 }
 
+
 /* Praktische info en dresscode staan al gestyled via .content p en .colors */
 
 /* Sluitingsdatum melding */
 .closing-date {
-  background-color: #fdf8f4;
+  background-color: #fcefee;
   border-left: 4px solid #b39976;
   padding: 0.75em 1em;
   margin: 1em 0;
   font-style: italic;
   color: #333;
 }
+
 
 /* Een beetje extra ruimte voor de +1 regels */
 .page.rsvp .form-group:nth-child(3) {
