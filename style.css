@@ -339,34 +339,36 @@ button {
   color: #555;
   text-align: center;
 }
-/* 0) Namen-reveal fullscreen overlay */
+/* Name-reveal full-screen overlay */
 .page.name-reveal {
   position: fixed;
   top: 0; left: 0;
   width: 100vw;  height: 100vh;
-  background: #ffffff; /* of een licht accent */
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   z-index: 50;
-  animation: nameReveal 2.5s ease-out forwards;
+  /* 3s totaal: 0→0.6s fade-in, 0.6→1.8s hold, 1.8→3s fade-out+zoom */
+  animation: nameReveal 3s ease-in-out forwards;
+  opacity: 0; /* start onzichtbaar */
 }
 
-/* Grote sierlijke namen */
 .names-flare {
   font-family: 'Great Vibes', cursive;
   font-size: 6rem;
   line-height: 1;
   color: #8e998b;
-  text-align: center;
   margin: 0;
 }
 
-/* Animatie: even blijven, dan uitfaden + licht zoomen */
+/* Keyframes met fade-in (0–20%), stilstand (20–60%), fade-out+zoom (60–100%) */
 @keyframes nameReveal {
-  0%   { opacity: 1; transform: scale(1); }
-  60%  { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(1.2); }
+  0%   { opacity: 0;   transform: scale(0.8); }
+  20%  { opacity: 1;   transform: scale(1);   }
+  60%  { opacity: 1;   transform: scale(1);   }
+  100% { opacity: 0;   transform: scale(1.2); }
 }
 
 /* Zorg dat body scroll/touch pas na fade-out werkt */
