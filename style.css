@@ -329,3 +329,13 @@ button {
 .page.info .content {
   text-align: left;
 }
+
+/* Intro-tekst onder de namen */
+.intro-text {
+  font-family: 'Lora', serif;
+  font-size: 1.25rem;
+  margin: 1rem 0;
+  line-height: 1.4;
+  color: #555;
+  text-align: center;
+}
