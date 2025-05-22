@@ -204,16 +204,3 @@ button {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Linkslijn-uitlijning voor zowel program- als info-pagina */
-.page.program,
-.page.info {
-  justify-content: flex-start;
-  padding-left: 2em;
-  padding-right: 2em;
-}
-
-.page.program .content,
-.page.info .content {
-  text-align: left;
-}
