@@ -6,6 +6,10 @@ html, body {
     color: #333;
      scroll-behavior: smooth; 
 }
+p {
+  font-size: 1.25rem;    /* vergroot van de standaard 1rem naar 1.2rem */
+  line-height: 1.6;     /* iets meer witruimte tussen regels */
+}
 
 h1 {
     font-family: 'Parisienne', cursive;
@@ -190,11 +194,47 @@ button {
   color: #333;
 }
 
+/* Eye-catcher Intro pagina */
+.page.intro-eye {
+  background-color: #ffffff;    /* kies een achtergrondkleur of een lichte overlay */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.page.intro-eye .content {
+  max-width: none;
+  width: 100%;
+  padding: 2em;
+}
+
+.page.intro-eye h1 {
+  font-size: 5.5rem;                      /* lekker groot, pas aan naar wens */
+  line-height: 1;
+  margin: 0;
+}
+
+.page.intro-eye h11 {
+  font-size: 5.5rem;                      /* lekker groot, pas aan naar wens */
+  line-height: 1;
+  margin: 0;
+  color: #8e998b;
+}
+
+/* Alleen op de countdown-pagina (intro) het h1 1rem groter */
+.page.intro h1 {
+  font-size: 6rem; /* was 5rem, nu +1rem */
+}
+/* Fade-in blijft werken zoals voorheen */
+
 
 /* Fade-in basisstijl */
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(30px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   will-change: opacity, transform;
 }
@@ -203,4 +243,122 @@ button {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Samengevoegde Praktische Info & Dresscode pagina */
+.page.info-dresscode {
+  background-color: #ffffff;
+  padding: 2em;
+}
+
+.page.info-dresscode .divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 1.5em 0;
+}
+
+/* 18+ waarschuwing */
+.page.info-dresscode .age-warning {
+  background-color: #fcefee;
+  border-left: 4px solid #b39976;
+  padding: 0.75em 1em;
+  margin-bottom: 1em;
+  font-style: italic;
+  color: #333;
+}
+
+
+/* Praktische info en dresscode staan al gestyled via .content p en .colors */
+
+/* Sluitingsdatum melding */
+.closing-date {
+  background-color: #fcefee;
+  border-left: 4px solid #b39976;
+  padding: 0.75em 1em;
+  margin: 1em 0;
+  font-style: italic;
+  color: #333;
+}
+
+
+/* Een beetje extra ruimte voor de +1 regels */
+.page.rsvp .form-group:nth-child(3) {
+  margin-top: 0.5em;
+}
+
+/* Naam +1 veld iets smaller */
+#plusone-name {
+  max-width: 100%;
+}
+
+/* Afsluitende “See You Soon” pagina */
+.page.outro-eye {
+  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.page.outro-eye .content {
+  width: 100%;
+  padding: 2em;
+}
+
+.page.outro-eye h1 {
+  font-size: 5.5rem;   /* net even wat kleiner dan intro, of pas zelf aan */
+  margin: 0;
+}
+
+.page.outro-eye p {
+  font-size: 1.3rem;
+  margin-top: 0.5em;
+}
+
+/* Intro-tekst onder de namen */
+.intro-text {
+  font-family: 'Lora', serif;
+  font-size: 1.25rem;
+  margin: 1rem 0;
+  line-height: 1.4;
+  color: #555;
+  text-align: center;
+}
+/* Name-reveal full-screen overlay */
+.page.name-reveal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;  height: 100vh;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 50;
+  /* 3s totaal: 0→0.6s fade-in, 0.6→1.8s hold, 1.8→3s fade-out+zoom */
+  animation: nameReveal 4s ease-in-out forwards;
+  opacity: 0; /* start onzichtbaar */
+}
+
+.names-flare {
+  font-family: 'Parisienne', cursive;
+  font-size: 6rem;
+  line-height: 1;
+  color: #8e998b;
+  margin: 0;
+}
+
+/* Keyframes met fade-in (0–20%), stilstand (20–60%), fade-out+zoom (60–100%) */
+@keyframes nameReveal {
+  0%   { opacity: 0;   transform: scale(0.8); }
+  20%  { opacity: 1;   transform: scale(0.95);   }
+  60%  { opacity: 1;   transform: scale(1);   }
+  100% { opacity: 0;   transform: scale(1.2); }
+}
+
+/* Zorg dat body scroll/touch pas na fade-out werkt */
+.page.name-reveal ~ * {
+  /* geen extra delay nodig: overlay blokkeert tot anim. klaar */
 }

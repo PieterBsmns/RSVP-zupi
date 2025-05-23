@@ -3,25 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zufaisa & Pieter Trouwen</title>
+    <title>Pieter & Zufaisa Trouwen</title>
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
     
 <body>
+
+  <!-- 0) Namen-reveal vóór de intro -->
+  <section class="page name-reveal">
+    <div class="content">
+      <h1 class="names-flare">
+        Pieter<br>&<br>Zufaisa
+      </h1>
+    </div>
+  </section>
+    
+  <!-- Eye-catcher intro met fade-in -->
+  <section class="page intro-eye fade-in">
+    <div class="content">
+      <h1>Wij gaan trouwen.</h1>
+      <h11>Kon piisii anga wi!</h11>
+    </div>
+  </section>
+
   <section class="photo-page">
     <img src="collage/ximage00003.jpeg" alt="Intro Foto">
   </section>
     
   <section class="page intro fade-in">
     <div class="content">
-      <h1>
-      Zufaisa<br>
-      &<br>
-      Pieter
-      </h1>
-      <p>Wij gaan trouwen!</p>
-      <h2>09 Augustus 2025</h2>
+   <!-- Nieuwe intro-tekst -->
+    <h1>Uw Uitnodiging</h1>
+    <h2 class="intro-text">
+      Wij willen graag dat u deel uitmaakt van deze bijzondere mijlpaal.
+    </h2>
+     <p>09 Augustus 2025</p>
       <div class="countdown-wrapper">
         <div class="countdown-item">
           <div class="countdown-circle" id="days">--</div>
@@ -47,13 +64,34 @@
     <img src="collage/ximage00005.jpeg" alt="Info Foto">
   </section>
     
-  <section class="page info fade-in">
+ <!-- Samengevoegde Praktische Info + Dresscode -->
+  <section class="page info-dresscode fade-in">
     <div class="content">
       <h1>Praktische informatie</h1>
+
+      <!-- 18+ waarschuwing -->
+      <p class="age-warning">
+        ℹ️ Let op: dit is een evenement voor gasten van <strong>18 jaar en ouder</strong>.
+      </p>
+
+      <!-- Praktische info -->
       <p><strong>Datum:</strong> 9 augustus 2025</p>
-      <p><strong>Aanvang tijdstip:</strong> 15:00</p>
+      <p><strong>Tijd:</strong> 18:30</p>
       <p><strong>Locatie:</strong> Utopia Heritage</p>
       <p><strong>Adres:</strong> Anton Drachtenweg 164, Paramaribo</p>
+
+      <!-- Scheiding -->
+      <hr class="divider">
+
+      <!-- Dresscode -->
+      <p><strong>Dresscode</strong></p>
+      <p>Formele kledij</p>
+      <div class="colors">
+        <div class="color-circle" style="background-color: #664b3a;"></div>
+        <div class="color-circle" style="background-color: #6c3a19;"></div>
+        <div class="color-circle" style="background-color: #92724c;"></div>
+        <div class="color-circle" style="background-color: #bcab97;"></div>
+      </div>
     </div>
   </section>
 
@@ -61,7 +99,23 @@
   <section class="photo-page">
     <img src="collage/ximage00002.jpeg" alt="Dresscode Foto">
   </section>
-    
+
+ <section class="page program fade-in">
+  <div class="content">
+      
+    <h1>Dagprogramma</h1>
+
+    <div class="program-lines">
+      <p><strong>18:30 - </strong>Inloop receptie</p>
+      <p><strong>19:00 - </strong>Felicitaties</p>
+      <p><strong>19:30 - </strong>Buffet</p>
+      <p><strong>21:00 - </strong>Openingsdans</p>
+      <p><strong>... - </strong>Avondfeest</p>
+    </div>
+
+  </div>
+</section>
+<!-- Oude Dresscode sectie  
   <section class="page dresscode fade-in">
     <div class="content">
       <h1>Dresscode</h1>
@@ -73,64 +127,113 @@
       </div>
     </div>
   </section>
-
+-->
 
   <section class="photo-page">
     <img src="collage/ximage00002x.jpeg" alt="RSVP Foto">
   </section>
     
-  <section class="page rsvp fade-in">
-    <div class="content">
-      <h1>Bevestig je aanwezigheid</h1>
-      <form id="rsvp-form">
-        <div class="form-group">
-          <label for="names">Naam:</label>
-          <input id="names" type="text" name="names" required placeholder="Bijv. Andre">
-        </div>
-        <div class="form-group">
-          <label for="count">Aantal personen:</label>
-          <input id="count" type="number" name="count" min="1" max="3" required placeholder="max 3">
-        </div>
-        <div class="form-group">
-          <label for="remarks">Opmerkingen:</label>
-          <textarea id="remarks" name="remarks" placeholder="(optioneel)"></textarea>
-        </div>
-        <input type="hidden" name="_captcha" value="false">
-        <button type="submit">Bevestigen</button>
-      </form>
-      <p id="thanks" style="display:none;">U staat nu op de gastenlijst. <br>
-      Bedankt voor het bevestigen!</p>
-      <p class="footer-message">We kijken ernaar uit jullie te zien.</p>
-    </div>
-  </section>
-    
-<section class="photo-page">
-    <img src="collage/ximage00008.jpeg" alt="Programma foto">
-  </section>
-<section class="page program fade-in">
+ <section class="page rsvp fade-in">
   <div class="content">
-      
-    <h1>Dagprogramma</h1>
+    <h1>Bevestig je aanwezigheid</h1>
 
-    <!-- Nieuw: 18+ info -->
-    <p class="age-warning">
-      ℹ️ Let op: dit is een evenement voor gasten van <strong>18 jaar en ouder</strong>.
+    <!-- Melding sluitingsdatum -->
+    <p class="closing-date">
+      ℹ️ De gastenlijst sluit op <strong>20 juli</strong>.
     </p>
 
-    <div class="program-lines">
-      <p><strong>15:00 – 16:00</strong> Ceremonie</p>
-      <p><strong>16:00 – 18:00</strong> Receptie</p>
-      <p><strong>18:00 – 21:00</strong> Diner</p>
-    </div>
+    <form id="rsvp-form">
+      <div class="form-group">
+        <label for="names">Naam:</label>
+        <input
+          id="names"
+          name="names"
+          type="text"
+          required
+          placeholder="Bijv. André"
+        >
+      </div>
 
-    <h1>Contactpersoon:</h1>
+      <div class="form-group">
+        <label for="plusone-name">Naam van je +1:</label>
+        <input
+          id="plusone-name"
+          name="plusoneName"
+          type="text"
+          placeholder="Naam van je gast"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="remarks">Opmerkingen:</label>
+        <textarea
+          id="remarks"
+          name="remarks"
+          placeholder="(optioneel)"
+        ></textarea>
+      </div>
+
+      <input type="hidden" name="_captcha" value="false">
+      <button type="submit">Bevestigen</button>
+    </form>
+
+    <p id="thanks" style="display:none;">
+      U staat nu op de gastenlijst. <br>
+      Bedankt voor het bevestigen!
+    </p>
+    <p class="footer-message">
+      We kijken ernaar uit jullie te zien.
+    </p><br>
+    <p>Cadeautip: ✉️</p>
+  </div>
+</section>
+
+    
+<section class="photo-page">
+    <img src="collage/image00001_1xx.jpg" alt="Programma foto">
+</section>
+    
+ <section class="page program fade-in">
+  <div class="content">
+    <h1>Contactpersoon</h1>
     <p class="contact">
       <strong>Zufaisa Van Cooten</strong><br>
-      📞 +32 471 57 42 17<br>
-      ✉️ <a href="mailto:fam.bosmansvancooten@gmail.com">fam.bosmansvancooten@gmail.com</a>
+      📞 +32 471 574 217<br>
+
+      <strong>Jillery Van Cooten</strong><br>
+      📞 +597 747 6019<br>
     </p>
   </div>
 </section>
+
+<section class="photo-page">
+    <img src="collage/image00099.jpeg" alt="seeyousoon foto">
+</section>
+    
+  <!-- See You Soon afsluiter met fade-in -->
+  <section class="page outro-eye fade-in">
+    <div class="content">
+      <h1>See You Soon!</h1>
+      <p>We kunnen niet wachten om met jullie te vieren.</p>
+  <!-- GIF embed -->
+      <div class="tenor-gif-embed"
+         data-postid="25012101"
+         data-share-method="host"
+         data-aspect-ratio="1.33333"
+         data-width="100%">
+        <a href="https://tenor.com/view/scaler-create-impact-party-chill-gif-25012101">
+        Scaler Create Impact GIF
+        </a> from
+        <a href="https://tenor.com/search/scaler-gifs">Scaler GIFs</a>
+     </div>
+      <script type="text/javascript"
+            async
+            src="https://tenor.com/embed.js">
+      </script>
+
+        
+    </div>
+  </section>
     
 <!-- 1) EmailJS via jsDelivr -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
