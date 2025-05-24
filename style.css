@@ -363,27 +363,35 @@ button {
   /* geen extra delay nodig: overlay blokkeert tot anim. klaar */
 }
 
-/* Omlijst alle tekst-pagina’s (class .page) met het SVG-kader, behalve .photo-page */
+/* Omlijst alle tekst-pagina’s (behalve .photo-page) strakker rondom de content */
 .page:not(.photo-page) {
-  /* 1) Reserveer 30px voor de border */
+  /* reserveer 30px voor de border, transparant als fallback */
   border: 30px solid transparent;
 
-  /* 2) Laad je SVG (of PNG) en geef de slice zonder units */
-  border-image: 
-    url('collage/edge_gold.jpg') /* bron */
-    30                               /* slice = 30 units (dus 30px in je SVG) */
-    /*fill                             /* middendeel óók vullen (optioneel) */
-    stretch;                         /* randen uitrekken */
+  /* laad je kader-afbeelding, snij 30 units van elke kant, geen fill (dus binnenkant transparant) */
+  border-image-source: url('collage/edge_gold.jpg');
+  border-image-slice: 30;       /* slice zonder ‘fill’ zodat midden transparant blijft */
+  border-image-width: 30px;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
 
-  /* 3) layout blijft hetzelfde */
-  padding: 1em 1em;  /* 0.75em verticaal, 2em horizontaal */
+  /* scherpere padding: minder wit boven/onder */
+  padding: 0.5em 1em;           /* 0.5em verticaal, 1em horizontaal */
   margin: 1rem auto;
-  max-width: 600px;
+  max-width: 600px;             /* of jouw gewenste breedte */
   box-sizing: border-box;
 }
 
 .page:not(.photo-page) .content {
   position: relative;
   z-index: 1;
+}
+
+/* Nog strakker op mobiel */
+@media (max-width: 600px) {
+  .page:not(.photo-page) {
+    padding: 0.3em 0.8em;       /* nog minder wit op mobiele schermen */
+    margin: 0.5rem auto;
+  }
 }
 
