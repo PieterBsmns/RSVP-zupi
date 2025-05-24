@@ -376,8 +376,8 @@ button {
     stretch;                         /* randen uitrekken */
 
   /* 3) layout blijft hetzelfde */
-  padding: 0.75em 2em;  /* 0.75em verticaal, 2em horizontaal */
-  margin: 2rem auto;
+  padding: 1em 1em;  /* 0.75em verticaal, 2em horizontaal */
+  margin: 1rem auto;
   max-width: 900px;
   box-sizing: border-box;
 }
