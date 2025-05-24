@@ -366,14 +366,14 @@ button {
 /* Omlijst de Praktische info pagina met jouw SVG-kader */
 .page.info-dresscode {
   /* transparante border om de SVG in te tekenen */
-  border: 40px solid transparent;
+  border: 30px solid transparent;
 
   /* laad je SVG-kader */
   border-image-source: url('collage/rm153-toon-06.svg');
 
   /* '40' komt overeen met de dikte van je kabelrand in de SVG */
-  border-image-slice: 40 fill;
-  border-image-width: 40px;
+  border-image-slice: 30;
+  border-image-width: 30px;
   border-image-outset: 0;
 
   /* hoe de randen worden herhaald of gestrekt */
