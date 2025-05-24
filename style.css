@@ -363,31 +363,22 @@ button {
   /* geen extra delay nodig: overlay blokkeert tot anim. klaar */
 }
 
-/* Omlijst de Praktische info pagina met jouw SVG-kader */
-.page.info-dresscode {
-  /* transparante border om de SVG in te tekenen */
+/* Omlijst alle tekst-pagina’s (class .page) met het SVG-kader, behalve .photo-page */
+.page:not(.photo-page) {
   border: 30px solid transparent;
-
-  /* laad je SVG-kader */
   border-image-source: url('collage/rm153-toon-06.svg');
-
-  /* '40' komt overeen met de dikte van je kabelrand in de SVG */
   border-image-slice: 30 fill;
   border-image-width: 30px;
   border-image-outset: 0;
-
-  /* hoe de randen worden herhaald of gestrekt */
   border-image-repeat: stretch;
 
-  /* behoud de standaard padding / centering */
   padding: 2em;
-  box-sizing: border-box;
   margin: 2rem auto;
   max-width: 900px;
+  box-sizing: border-box;
 }
 
-.page.info-dresscode .content {
-  /* tekst staat netjes boven de border */
+.page:not(.photo-page) .content {
   position: relative;
   z-index: 1;
 }
