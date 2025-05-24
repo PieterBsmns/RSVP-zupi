@@ -365,16 +365,15 @@ button {
 
 /* Omlijst alle tekst-pagina’s (class .page) met het SVG-kader, behalve .photo-page */
 .page:not(.photo-page) {
-  border: 30px solid transparent;
+  border: 20px solid transparent;
   border-image-source: url('collage/rm153-toon-06.svg');
-  border-image-slice: 30 fill;
-  border-image-width: 30px;
+  border-image-slice: 20 fill;
+  border-image-width: 20px;
   border-image-outset: 0;
-  border-image-repeat: stretch;
+  border-image-repeat: round;
 
   padding: 2em;
   margin: 2rem auto;
-  max-width: 900px;
   box-sizing: border-box;
 }
 
