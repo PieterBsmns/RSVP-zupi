@@ -372,13 +372,13 @@ button {
   border-image: 
     url('collage/edge_gold.jpg') /* bron */
     30                               /* slice = 30 units (dus 30px in je SVG) */
-    fill                             /* middendeel óók vullen (optioneel) */
+    /*fill                             /* middendeel óók vullen (optioneel) */
     stretch;                         /* randen uitrekken */
 
   /* 3) layout blijft hetzelfde */
   padding: 1em 1em;  /* 0.75em verticaal, 2em horizontaal */
   margin: 1rem auto;
-  max-width: 900px;
+  max-width: 600px;
   box-sizing: border-box;
 }
 
