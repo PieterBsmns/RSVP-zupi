@@ -365,10 +365,10 @@ button {
 
 /* Omlijst alle tekst-pagina’s (class .page) met het SVG-kader, behalve .photo-page */
 .page:not(.photo-page) {
-  border: 20px transparent;
+  border: 30px solid transparent ;
   border-image-source: url('collage/edge_gold.jpg');
-  border-image-slice: 20px ;
-  border-image-width: 20px;
+  border-image-slice: 30px ;
+  border-image-width: 30px;
   border-image-outset: 0;
   border-image-repeat: stretch;
 
