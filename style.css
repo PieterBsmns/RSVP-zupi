@@ -361,26 +361,14 @@ button {
 
 /* Omlijst alle tekst-pagina’s (behalve .photo-page) strakker rondom de content */
 .page:not(.photo-page) {
-  /* reserveer 30px voor de border, transparant als fallback */
-  border: 100px solid transparent;
-
-  /* laad je kader-afbeelding, snij 30 units van elke kant, geen fill (dus binnenkant transparant) */
-  border-image-source: url('collage/slim.png');
-  border-image-slice: 100 100 100 100;     /* slice zonder ‘fill’ zodat midden transparant blijft */
-  border-image-width: 100px 100px 100px 100px;
-  border-image-outset: 0;
-  border-image-repeat: stretch;
-
-  /* scherpere padding: minder wit boven/onder */
-  padding: 0.5em 0.5em;           /* 0.5em verticaal, 1em horizontaal */
-  margin: 1rem auto;
-  max-width: 900px;             /* of jouw gewenste breedte */
-  box-sizing: border-box;
-}
-
-.page:not(.photo-page) .content {
   position: relative;
-  z-index: 1;
-}
+  padding: 2em;
+  border-radius: 20px;
+  background-clip: padding-box;
 
+  /* dubbel border met gradient én schaduw */
+  box-shadow:
+    0 0 0 4px rgba(142,153,139,0.6),   /* subtiel groene tint */
+    0 0 0 8px rgba(183,153,118,0.6);  /* gouden rand */
+}
 
