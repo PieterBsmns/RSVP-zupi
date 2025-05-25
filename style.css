@@ -366,12 +366,12 @@ button {
 /* Omlijst alle tekst-pagina’s (behalve .photo-page) strakker rondom de content */
 .page:not(.photo-page) {
   /* reserveer 30px voor de border, transparant als fallback */
-  border: 15px solid transparent;
+  border: 25px solid transparent;
 
   /* laad je kader-afbeelding, snij 30 units van elke kant, geen fill (dus binnenkant transparant) */
   border-image-source: url('collage/loads.png');
-  border-image-slice: 15 15 15 15;     /* slice zonder ‘fill’ zodat midden transparant blijft */
-  border-image-width: 15px 15px 15px 15px;
+  border-image-slice: 25 25 25 25;     /* slice zonder ‘fill’ zodat midden transparant blijft */
+  border-image-width: 25px 25px 25px 25px;
   border-image-outset: 0;
   border-image-repeat: stretch;
 
