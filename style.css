@@ -369,7 +369,7 @@ button {
 
   /* border-image setup */
   border: 20px solid transparent;
-  border-image-source: url('/images/gouden_border.png');
+  border-image-source: url('collage/custom1.png');
   border-image-slice: 20 fill;
   border-image-width: 20;
   border-image-outset: 0;
