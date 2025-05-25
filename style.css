@@ -362,11 +362,26 @@ button {
 /* Omlijst alle tekst-pagina’s (behalve .photo-page) strakker rondom de content */
 .page:not(.photo-page) {
   position: relative;
+  /* ruimte voor de 20px border + je standaard padding */
   padding: calc(2em + 20px);
   border-radius: 20px;
   background-clip: padding-box;
 
-  background-image: url('collage/custom1.png');
-  background-repeat: no-repeat;
-  background-size: 100% 100%; /* of: cover / contain, afhankelijk van layout */
+  /* border-image setup */
+  border: 20px solid transparent;
+  border-image-source: url('/images/gouden_border.png');
+  border-image-slice: 20 fill;
+  border-image-width: 20;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+}
+
+/* Mobiel: kleinere border + minder padding */
+@media (max-width: 768px) {
+  .page:not(.photo-page) {
+    padding: calc(1em + 10px);
+    border: 10px solid transparent;
+    border-image-slice: 10 fill;
+    border-image-width: 10;
+  }
 }
