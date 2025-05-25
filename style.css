@@ -366,7 +366,7 @@ button {
 /* Omlijst alle tekst-pagina’s (behalve .photo-page) strakker rondom de content */
 .page:not(.photo-page) {
   /* reserveer 30px voor de border, transparant als fallback */
-  border: 30px solid transparent;
+  border: 40px solid transparent;
 
   /* laad je kader-afbeelding, snij 30 units van elke kant, geen fill (dus binnenkant transparant) */
   border-image-source: url('collage/edge_gold.jpg');
@@ -376,9 +376,9 @@ button {
   border-image-repeat: stretch;
 
   /* scherpere padding: minder wit boven/onder */
-  padding: 0.5em 1em;           /* 0.5em verticaal, 1em horizontaal */
+  padding: 1.5em 1.5em;           /* 0.5em verticaal, 1em horizontaal */
   margin: 1rem auto;
-  max-width: 1000px;             /* of jouw gewenste breedte */
+  max-width: 900px;             /* of jouw gewenste breedte */
   box-sizing: border-box;
 }
 
@@ -388,10 +388,10 @@ button {
 }
 
 /* Nog strakker op mobiel */
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
   .page:not(.photo-page) {
-    padding: 0.3em 0.8em;       /* nog minder wit op mobiele schermen */
-    margin: 0.5rem auto;
+    padding: 1em 1em;       /* nog minder wit op mobiele schermen */
+    margin: 1rem auto;
   }
 }
 
