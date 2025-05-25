@@ -373,9 +373,9 @@ button {
   background-clip: padding-box;
 
   /* border-image */
-  border: 20px solid transparent;
+  border: 30px solid transparent;
   border-image-source: url('collage/custom1.png');
-  border-image-slice: 20 fill;
-  border-image-width: 20;
+  border-image-slice: 30 fill;
+  border-image-width: 30;
   border-image-repeat: stretch;
 }
