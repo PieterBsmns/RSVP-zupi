@@ -362,13 +362,11 @@ button {
 /* Omlijst alle tekst-pagina’s (behalve .photo-page) strakker rondom de content */
 .page:not(.photo-page) {
   position: relative;
-  padding: 2em;
+  padding: calc(2em + 20px);
   border-radius: 20px;
   background-clip: padding-box;
 
-  /* dubbel border met gradient én schaduw */
-  box-shadow:
-    0 0 0 4px rgba(142,153,139,0.6),   /* subtiel groene tint */
-    0 0 0 8px rgba(183,153,118,0.6);  /* gouden rand */
+  background-image: url('collage/custom1.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%; /* of: cover / contain, afhankelijk van layout */
 }
-
