@@ -358,10 +358,6 @@ button {
   100% { opacity: 0;   transform: scale(1.2); }
 }
 
-/* Zorg dat body scroll/touch pas na fade-out werkt */
-.page.name-reveal ~ * {
-  /* geen extra delay nodig: overlay blokkeert tot anim. klaar */
-}
 
 /* Omlijst alle tekst-pagina’s (behalve .photo-page) strakker rondom de content */
 .page:not(.photo-page) {
