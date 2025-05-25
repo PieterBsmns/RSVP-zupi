@@ -361,21 +361,21 @@ button {
 
 /* Omlijst alle tekst-pagina’s (behalve .photo-page) strakker rondom de content */
 .page:not(.photo-page) {
-  position: relative;
-  /* maak de container écht full-width */
+  /* container full-width of page laten lopen als je dat wil */
+  margin: 0 auto;
   width: 100%;
-  max-width: none;
-  margin: 0;
-  
-  /* gewoon je content-padding */
-  padding: 2em;
+
+  position: relative;
+  padding: calc(2em + 20px);
   border-radius: 20px;
   background-clip: padding-box;
 
-  /* border-image */
-  border: 30px solid transparent;
-  border-image-source: url('collage/custom1.png');
-  border-image-slice: 30 fill;
-  border-image-width: 30;
-  border-image-repeat: stretch;
+  /* verwijder oude schaduw */
+  box-shadow: none;
+
+  /* reserveer ruimte voor je PNG-border én maak ’m transparent */
+  border: 20px solid transparent;
+
+  /* shorthand border-image */
+  border-image: url('collage/custom1.png') 20 fill stretch;
 }
