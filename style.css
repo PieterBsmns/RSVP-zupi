@@ -369,7 +369,7 @@ button {
   border: 100px solid transparent;
 
   /* laad je kader-afbeelding, snij 30 units van elke kant, geen fill (dus binnenkant transparant) */
-  border-image-source: url('collage/loads.png');
+  border-image-source: url('collage/slim.png');
   border-image-slice: 100 100 100 100;     /* slice zonder ‘fill’ zodat midden transparant blijft */
   border-image-width: 100px 100px 100px 100px;
   border-image-outset: 0;
