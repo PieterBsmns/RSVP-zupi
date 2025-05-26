@@ -1,263 +1,219 @@
+/* ============================
+   Basis & typografie
+   ============================ */
 html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lora', serif;
-    background-color: #efeeec;
-    color: #333;
-     scroll-behavior: smooth; 
-}
-p {
-  font-size: 1.25rem;    /* vergroot van de standaard 1rem naar 1.2rem */
-  line-height: 1.3;     /* iets meer witruimte tussen regels */
-}
-
-h1 {
-    font-family: 'Parisienne', cursive;
-    font-size: 3em;
-    line-height: 1.2;       /* houdt de regels mooi bij elkaar */
-    margin-bottom: 1rem;  /* ruimte onder de h1 */
-}
-
-h2 {
-    font-size: 2em;
-    margin-top: 0.5em;
-}
-
-.page, .photo-page {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2em;
-    box-sizing: border-box;
-}
-
-.page1 { background-color: #efeeec; }
-.page2 { background-color: #ffffff; }
-.page3 { background-color: #f6f6f6; }
-.page4 { background-color: #ffffff; }
-
-.content {
-    max-width: 600px;
-    width: 100%;
-}
-
-.photo-page { margin:0;
-              padding:0;
-              background: transparent;
-              overflow:hidden; 
-}
-
-.photo-page img { width:100vw;
-                  height:100vh; 
-                  object-fit:cover;
-                  object-position:center;
-                  display:block; 
-}
-
-.form-group {
-    display: contents;
-}
-
-form {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-row-gap: 1rem;
-    grid-column-gap: 1.5rem;
-    align-items: center;
-}
-
-label {
-    justify-self: end;
-    font-weight: bold;
-}
-
-input, textarea {
-    justify-self: start;
-    width: 100%;
-    padding: 0.5em;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-button {
-    grid-column: 1 / -1;
-    justify-self: center;
-    margin-top: 1rem;
-    background-color: #8e998b;
-    color: white;
-    padding: 0.75em;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-}
-
-.colors {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    margin-top: 1em;
-}
-
-.color-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid white;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-
-.countdown-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    margin-top: 1.5em;
-}
-
-.countdown-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.countdown-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    color: white;
-    font-size: 1em;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-#days { background-color: #b39976; }
-#hours { background-color: #8e998b; }
-#minutes { background-color: #b39976; }
-#seconds { background-color: #8e998b; }
-
-.countdown-label {
-    margin-top: 0.5em;
-    font-size: 0.6em;
-}
-
-.footer-message {
-    margin-top: 1em;
-    font-style: italic;
-}
-
-/* Nieuwe “program” pagina */
-.page.program {
-  background-color: #fefdfc;
-  padding: 2em;
-}
-
-.program-list {
-  list-style: none;
-  padding: 0;
-  margin: 1em 0 2em;
-}
-
-.program-list li {
-  margin: 0.5em 0;
-  font-size: 1.1rem;
-}
-
-.program-list strong {
-  color: #8e998b;
-  margin-right: 0.5em;
-}
-
-.page.program .contact {
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.page.program .contact a {
-  color: #8e998b;
-  text-decoration: none;
-}
-
-/* 18+ waarschuwing op de programma-pagina */
-.page.program .age-warning {
-  background-color: #fcefee;
-  border-left: 4px solid #b39976;
-  padding: 0.75em 1em;
-  margin: 1em 0;
-  font-style: italic;
-  color: #333;
-}
-
-/* Eye-catcher Intro pagina */
-.page.intro-eye {
-  background-color: #ffffff;    /* kies een achtergrondkleur of een lichte overlay */
-  padding: 0;
   margin: 0;
+  padding: 0;
+  font-family: 'Lora', serif;
+  background-color: #efeeec;
+  color: #333;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Bodytekst net iets compacter en uniform */
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 0 0 1em;
+}
+
+/* Koppen */
+h1 {
+  font-family: 'Parisienne', cursive;
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+}
+
+/* ============================
+   Secties & layout
+   ============================ */
+.page, .photo-page {
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-.page.intro-eye .content {
-  max-width: none;
-  width: 100%;
   padding: 2em;
 }
 
-.page.intro-eye h1 {
-  font-size: 5.5rem;                      /* lekker groot, pas aan naar wens */
-  line-height: 1;
-  margin: 0;
+.content {
+  max-width: 600px;
+  width: 100%;
 }
 
+/* Foto-secties */
+.photo-page {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+}
+.photo-page img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ============================
+   Form & knop
+   ============================ */
+.form-group {
+  display: contents;
+}
+form {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 1rem 1.5rem;
+  align-items: center;
+}
+label {
+  justify-self: end;
+  font-weight: bold;
+}
+input, textarea {
+  justify-self: start;
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+button {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: 1.5rem;
+  padding: 1em 2em;
+  font-size: 1.1em;
+  background-color: #8e998b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Mobile: single-column formulier */
+@media (max-width: 400px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+  label {
+    justify-self: start;
+  }
+}
+
+/* ============================
+   Countdown
+   ============================ */
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 1.5em;
+}
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.countdown-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+#days { background-color: #b39976; }
+#hours { background-color: #8e998b; }
+#minutes { background-color: #b39976; }
+#seconds { background-color: #8e998b; }
+.countdown-label {
+  margin-top: 0.5em;
+  font-size: 1em;
+}
+
+/* ============================
+   Kader rond tekst-pagina’s
+   ============================ */
+.page:not(.photo-page) {
+  /* reserveer ruimte voor kader */
+  border: 60px solid transparent;
+  /* gebruik SVG/PNG-kader */
+  border-image: url('collage/edge_gold.jpg') 60 stretch;
+  /* strakkere padding rondom */
+  padding: 0.5em 1em;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+.page:not(.photo-page) .content {
+  position: relative;
+  z-index: 1;
+}
+/* Mobiel: minder witruimte */
+@media (max-width: 600px) {
+  .page:not(.photo-page) {
+    padding: 0.3em 0.8em;
+    margin: 1rem auto;
+  }
+}
+
+/* ============================
+   Specifieke pagina-stijlen
+   ============================ */
+/* Intro-eye */
+.page.intro-eye {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+.page.intro-eye .content {
+  padding: 2em;
+}
+.page.intro-eye h1,
 .page.intro-eye h11 {
-  font-size: 5.5rem;                      /* lekker groot, pas aan naar wens */
+  font-size: 5.5rem;
   line-height: 1;
   margin: 0;
   color: #8e998b;
 }
-
-/* Alleen op de countdown-pagina (intro) het h1 1rem groter */
-.page.intro h1 {
-  font-size: 6rem; /* was 5rem, nu +1rem */
-}
-/* Fade-in blijft werken zoals voorheen */
-
-
-/* Fade-in basisstijl */
+/* Intro fade-in offset */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   will-change: opacity, transform;
 }
-
-/* Zodra .visible toegevoegd wordt, speelt de animatie af */
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Samengevoegde Praktische Info & Dresscode pagina */
+/* Praktische info & dresscode */
 .page.info-dresscode {
-  background-color: #ffffff;
-  padding: 2em;
+  background: #fff;
 }
-
 .page.info-dresscode .divider {
   border: none;
   border-top: 1px solid #ccc;
   margin: 1.5em 0;
 }
-
-/* 18+ waarschuwing */
 .page.info-dresscode .age-warning {
   background-color: #fcefee;
   border-left: 4px solid #b39976;
@@ -267,115 +223,75 @@ button {
   color: #333;
 }
 
+/* Programma */
+.page.program {
+  background-color: #fefdfc;
+  padding: 2em 2em 1em;
+}
+.program-lines p {
+  margin: 0.5em 0;
+  font-size: 1.1rem;
+  text-align: left;
+}
+.page.program .age-warning {
+  background-color: #fcefee;
+  border-left: 4px solid #b39976;
+}
+.page.program .contact {
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5;
+}
 
-/* Praktische info en dresscode staan al gestyled via .content p en .colors */
-
-/* Sluitingsdatum melding */
-.closing-date {
+/* RSVP sectie */
+.page.rsvp .closing-date {
   background-color: #fcefee;
   border-left: 4px solid #b39976;
   padding: 0.75em 1em;
   margin: 1em 0;
   font-style: italic;
-  color: #333;
+}
+.page.rsvp .footer-message {
+  margin-top: 1.5em;
+  font-style: italic;
 }
 
-
-/* Een beetje extra ruimte voor de +1 regels */
-.page.rsvp .form-group:nth-child(3) {
-  margin-top: 0.5em;
-}
-
-/* Naam +1 veld iets smaller */
-#plusone-name {
-  max-width: 100%;
-}
-
-/* Afsluitende “See You Soon” pagina */
+/* Outro-eye */
 .page.outro-eye {
-  background-color: #ffffff;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.page.outro-eye .content {
-  width: 100%;
+  background: #fff;
   padding: 2em;
 }
-
 .page.outro-eye h1 {
-  font-size: 5.5rem;   /* net even wat kleiner dan intro, of pas zelf aan */
+  font-size: 5rem;
   margin: 0;
 }
-
 .page.outro-eye p {
   font-size: 1.3rem;
   margin-top: 0.5em;
 }
 
-/* Intro-tekst onder de namen */
-.intro-text {
-  font-family: 'Lora', serif;
-  font-size: 1.25rem;
-  margin: 1rem 0;
-  line-height: 1.4;
-  color: #555;
-  text-align: center;
-}
-/* Name-reveal full-screen overlay */
-.page.name-reveal {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;  height: 100vh;
-  background: #ffffff;
+/* Scroll-indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border: 2px solid #8e998b;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  z-index: 50;
-  /* 3s totaal: 0→0.6s fade-in, 0.6→1.8s hold, 1.8→3s fade-out+zoom */
-  animation: nameReveal 4s ease-in-out forwards;
-  opacity: 0; /* start onzichtbaar */
+  cursor: pointer;
 }
-
-.names-flare {
-  font-family: 'Parisienne', cursive;
-  font-size: 5rem;
-  line-height: 1;
+.scroll-indicator .arrow {
+  font-size: 1.5rem;
   color: #8e998b;
-  margin: 0;
+  animation: bounce 2s ease-in-out infinite;
 }
-
-/* Keyframes met fade-in (0–20%), stilstand (20–60%), fade-out+zoom (60–100%) */
-@keyframes nameReveal {
-  0%   { opacity: 0;   transform: scale(0.8); }
-  20%  { opacity: 1;   transform: scale(0.95);   }
-  60%  { opacity: 1;   transform: scale(1);   }
-  100% { opacity: 0;   transform: scale(1.2); }
-}
-
-
-/* Omlijst alle tekst-pagina’s (behalve .photo-page) strakker rondom de content */
-.page:not(.photo-page) {
-  /* container full-width of page laten lopen als je dat wil */
-  margin: 0 auto;
-  width: 100%;
-
-  position: relative;
-  padding: calc(2em + 20px);
-  border-radius: 20px;
-  background-clip: padding-box;
-
-  /* verwijder oude schaduw */
-  box-shadow: none;
-
-  /* reserveer ruimte voor je PNG-border én maak ’m transparent */
-  border: 20px solid transparent;
-
-  /* shorthand border-image */
-  border-image: url('collage/custom1.png') 20 fill stretch;
+@keyframes bounce {
+  0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
 }
