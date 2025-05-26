@@ -155,7 +155,7 @@ button {
   /* reserveer ruimte voor kader */
   border: 60px solid transparent;
   /* gebruik SVG/PNG-kader */
-  border-image: url('collage/edge_gold.jpg') 60 stretch;
+  border-image: url('collage/slim.png') 60 stretch;
   /* strakkere padding rondom */
   padding: 0.5em 1em;
   margin: 2rem auto;
