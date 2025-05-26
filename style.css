@@ -153,7 +153,7 @@ button {
    ============================ */
 .page:not(.photo-page) {
   /* reserveer ruimte voor kader */
-  border: 60px solid transparent;
+  border: 80px solid transparent;
   /* gebruik SVG/PNG-kader */
   border-image: url('collage/slim.png') 60 stretch;
   /* strakkere padding rondom */
