@@ -160,6 +160,7 @@ button {
   padding: 0.5em 1em;
   margin: 2rem auto;
   max-width: 900px;
+  box-sizing: border-box;
 }
 .page:not(.photo-page) .content {
   position: relative;
