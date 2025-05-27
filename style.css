@@ -170,7 +170,7 @@ button {
 .page:not(.photo-page) .content {
   position: relative;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.8); /* Slight white background for readability */
+  background: rgba(255, 255, 255, 0.9); /* Slight white background for readability */
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
@@ -208,7 +208,7 @@ button {
 /* ============================
    Specifieke pagina-stijlen
    ============================ */
-/* Intro-eye - geen frame */
+/* Intro-eye - geen frame, with scroll indicator */
 .page.intro-eye {
   background: #fff;
   background-image: none; /* Remove frame for intro */
@@ -229,16 +229,48 @@ button {
   color: #8e998b;
 }
 
-/* Name reveal - geen frame */
+/* Scroll-indicator specifically for intro-eye page */
+.page.intro-eye .scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  border: 2px solid #8e998b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.page.intro-eye .scroll-indicator .arrow {
+  font-size: 1.5rem;
+  color: #8e998b;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* Name reveal - geen frame, with fade animation */
 .page.name-reveal {
   background: #fff;
   background-image: none; /* Remove frame for name reveal */
   padding: 2em;
   margin: 0;
+  animation: fadeInOut 3s ease-in-out forwards;
 }
 .page.name-reveal .content {
   background: transparent;
   box-shadow: none;
+}
+
+/* Fade in/out animation for name reveal */
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
 }
 
 /* Outro-eye - with frame */
@@ -337,7 +369,7 @@ button {
   font-style: italic;
 }
 
-/* Scroll-indicator */
+/* Scroll-indicator - updated bounce animation */
 .scroll-indicator {
   position: absolute;
   bottom: 20px;
@@ -358,7 +390,13 @@ button {
   animation: bounce 2s ease-in-out infinite;
 }
 @keyframes bounce {
-  0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); }
-  40% { transform: translateX(-50%) translateY(-10px); }
-  60% { transform: translateX(-50%) translateY(-5px); }
+  0%, 20%, 50%, 80%, 100% { 
+    transform: translateY(0); 
+  }
+  40% { 
+    transform: translateY(-10px); 
+  }
+  60% { 
+    transform: translateY(-5px); 
+  }
 }
