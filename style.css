@@ -170,7 +170,7 @@ button {
 .page:not(.photo-page) .content {
   position: relative;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.9); /* Slight white background for readability */
+  background: rgba(255, 255, 255, 0.8); /* Slight white background for readability */
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
@@ -244,8 +244,12 @@ button {
 /* Outro-eye - with frame */
 .page.outro-eye {
   background: #fff;
-  /* Keep the frame for outro page */
-  padding: 2em;
+  /* Add the frame background */
+  background-image: url('collage/slim.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 100px 120px; /* Same padding as other framed pages */
 }
 .page.outro-eye .content {
   background: rgba(255, 255, 255, 0.9);
