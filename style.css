@@ -149,42 +149,76 @@ button {
 }
 
 /* ============================
-   Kader rond tekst-pagina’s
+   NIEUWE KADER IMPLEMENTATIE
    ============================ */
 .page:not(.photo-page) {
-  /* reserveer ruimte voor kader */
-  border: 80px solid transparent;
-  /* gebruik SVG/PNG-kader */
-  border-image: url('collage/slim.png') 60 stretch;
-  /* strakkere padding rondom */
-  padding: 0.5em 1em;
+  position: relative;
   margin: 2rem auto;
   max-width: 900px;
-  box-sizing: border-box;
+  min-height: 80vh;
+  
+  /* Frame als achtergrond */
+  background-image: url('collage/slim.png');
+  background-size: 100% 100%; /* Stretch to fit container */
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  /* Padding om inhoud binnen het frame te houden */
+  padding: 100px 120px; /* Adjust these values based on your frame's border thickness */
 }
+
 .page:not(.photo-page) .content {
   position: relative;
   z-index: 1;
+  background: rgba(255, 255, 255, 0.9); /* Slight white background for readability */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
-/* Mobiel: minder witruimte */
-@media (max-width: 600px) {
+
+/* Alternative: If you want the frame to be more decorative without background on content */
+.page:not(.photo-page).no-content-bg .content {
+  background: transparent;
+  box-shadow: none;
+  padding: 1rem;
+}
+
+/* Mobiel: aangepaste padding voor kleinere schermen */
+@media (max-width: 768px) {
   .page:not(.photo-page) {
-    padding: 0.3em 0.8em;
+    padding: 60px 80px; /* Smaller padding on mobile */
     margin: 1rem auto;
+  }
+  
+  .page:not(.photo-page) .content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page:not(.photo-page) {
+    padding: 40px 60px; /* Even smaller padding on very small screens */
+  }
+  
+  .page:not(.photo-page) .content {
+    padding: 1rem;
   }
 }
 
 /* ============================
    Specifieke pagina-stijlen
    ============================ */
-/* Intro-eye */
+/* Intro-eye - geen frame */
 .page.intro-eye {
   background: #fff;
-  padding: 0;
+  background-image: none; /* Remove frame for intro */
+  padding: 2em;
   margin: 0;
   position: relative;
 }
 .page.intro-eye .content {
+  background: transparent;
+  box-shadow: none;
   padding: 2em;
 }
 .page.intro-eye h1,
@@ -194,6 +228,38 @@ button {
   margin: 0;
   color: #8e998b;
 }
+
+/* Name reveal - geen frame */
+.page.name-reveal {
+  background: #fff;
+  background-image: none; /* Remove frame for name reveal */
+  padding: 2em;
+  margin: 0;
+}
+.page.name-reveal .content {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Outro-eye - geen frame */
+.page.outro-eye {
+  background: #fff;
+  background-image: none; /* Remove frame for outro */
+  padding: 2em;
+}
+.page.outro-eye .content {
+  background: transparent;
+  box-shadow: none;
+}
+.page.outro-eye h1 {
+  font-size: 5rem;
+  margin: 0;
+}
+.page.outro-eye p {
+  font-size: 1.3rem;
+  margin-top: 0.5em;
+}
+
 /* Intro fade-in offset */
 .fade-in {
   opacity: 0;
@@ -207,9 +273,6 @@ button {
 }
 
 /* Praktische info & dresscode */
-.page.info-dresscode {
-  background: #fff;
-}
 .page.info-dresscode .divider {
   border: none;
   border-top: 1px solid #ccc;
@@ -224,11 +287,22 @@ button {
   color: #333;
 }
 
-/* Programma */
-.page.program {
-  background-color: #fefdfc;
-  padding: 2em 2em 1em;
+/* Color circles for dresscode */
+.colors {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
 }
+.color-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Programma */
 .program-lines p {
   margin: 0.5em 0;
   font-size: 1.1rem;
@@ -255,20 +329,6 @@ button {
 .page.rsvp .footer-message {
   margin-top: 1.5em;
   font-style: italic;
-}
-
-/* Outro-eye */
-.page.outro-eye {
-  background: #fff;
-  padding: 2em;
-}
-.page.outro-eye h1 {
-  font-size: 5rem;
-  margin: 0;
-}
-.page.outro-eye p {
-  font-size: 1.3rem;
-  margin-top: 0.5em;
 }
 
 /* Scroll-indicator */
