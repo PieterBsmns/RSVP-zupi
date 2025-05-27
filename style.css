@@ -209,18 +209,26 @@ button {
 /* ============================
    Specifieke pagina-stijlen
    ============================ */
-/* Intro-eye - geen frame, with scroll indicator */
+/* Intro-eye - WITH FRAME, with scroll indicator */
 .page.intro-eye {
   background: #fff;
-  background-image: none; /* Remove frame for intro */
-  padding: 2em;
-  margin: 0;
+  /* Add the frame background like other pages */
+  background-image: url('collage/slim.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 100px 120px; /* Same padding as other framed pages */
+  margin: 2rem auto;
+  max-width: 900px;
   position: relative;
 }
 .page.intro-eye .content {
-  background: transparent;
-  box-shadow: none;
-  padding: 2em;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 .page.intro-eye h1,
 .page.intro-eye h11 {
@@ -228,7 +236,6 @@ button {
   line-height: 1;
   margin: 0;
   color: #8e998b;
-}
 
 /* Scroll-indicator specifically for intro-eye page */
 .page.intro-eye .scroll-indicator {
@@ -238,7 +245,7 @@ button {
   transform: translateX(-50%);
   width: 60px;
   height: 60px;
-  border: 2px solid #8e998b;
+  border: 3px solid #8e998b; /* Increased from 2px to 3px */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -248,7 +255,8 @@ button {
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 .page.intro-eye .scroll-indicator .arrow {
-  font-size: 1.5rem;
+  font-size: 1.8rem; /* Increased from 1.5rem */
+  font-weight: bold; /* Make the arrow character bolder */
   color: #8e998b;
   animation: bounce 2s ease-in-out infinite;
 }
