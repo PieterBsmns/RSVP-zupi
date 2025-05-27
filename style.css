@@ -241,15 +241,17 @@ button {
   box-shadow: none;
 }
 
-/* Outro-eye - geen frame */
+/* Outro-eye - with frame */
 .page.outro-eye {
   background: #fff;
-  background-image: none; /* Remove frame for outro */
+  /* Keep the frame for outro page */
   padding: 2em;
 }
 .page.outro-eye .content {
-  background: transparent;
-  box-shadow: none;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  padding: 2rem;
+  border-radius: 10px;
 }
 .page.outro-eye h1 {
   font-size: 5rem;
