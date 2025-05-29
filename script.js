@@ -1,6 +1,18 @@
 // Debug: zie of script.js geladen wordt
 console.log("[Debug] script.js geladen");
 
+// === Remove name-reveal after animation completes ===
+document.addEventListener("DOMContentLoaded", () => {
+  const nameRevealSection = document.querySelector('.page.name-reveal');
+  if (nameRevealSection) {
+    // Remove the element after animation completes (3 seconds)
+    setTimeout(() => {
+      nameRevealSection.style.display = 'none';
+      console.log("[Debug] Name reveal section removed");
+    }, 3000);
+  }
+});
+
 // === Scroll to next section function ===
 function scrollToNext() {
   const currentSection = document.querySelector('.page.intro-eye');
