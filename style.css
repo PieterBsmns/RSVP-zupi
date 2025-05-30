@@ -210,6 +210,15 @@ button {
    Specifieke pagina-stijlen
    ============================ */
 /* Intro-eye - WITH FRAME, with scroll indicator */
+
+/* Simple fade in/out animation */
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
+}
+   
 .page.intro-eye {
   background: #fff;
   /* Add the frame background like other pages */
@@ -263,11 +272,11 @@ button {
   z-index: 2;
 }
 .page.intro-eye .scroll-indicator .arrow {
-  font-size: 1.8rem; /* Larger arrow */
+  font-size: 2rem; /* Larger arrow */
   font-weight: bold; /* Bolder arrow */
   color: #8e998b;
   animation: bounce 2s ease-in-out infinite;
-
+}
 /* Name reveal - geen frame, with fade animation */
 .page.name-reveal {
   background: #fff;
@@ -284,13 +293,7 @@ button {
 }
 
 
-/* Simple fade in/out animation */
-@keyframes fadeInOut {
-  0% { opacity: 0; }
-  30% { opacity: 1; }
-  70% { opacity: 1; }
-  100% { opacity: 0; }
-}
+
 
 /* Outro-eye - with frame */
 .page.outro-eye {
@@ -406,7 +409,7 @@ button {
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);*/
 }
 .page.intro-eye .scroll-indicator .arrow {
-  font-size: 1.8rem; /* Increased from 1.5rem */
+  font-size: 2rem; /* Increased from 1.5rem */
   font-weight: bold; /* Make the arrow character bolder */
   color: #8e998b;
   animation: bounce 2s ease-in-out infinite;
