@@ -1,42 +1,58 @@
 /* ============================
-   Basis & typografie
+   Variables & Root Styles
    ============================ */
+:root {
+  /* Colors */
+  --color-bg: #efeeec;
+  --color-text: #333;
+  --color-primary: #8e998b;
+  --color-secondary: #b39976;
+  --color-muted: #ccc;
+  --color-warning-bg: #fcefee;
+  
+  /* Typography */
+  --font-base: 'Lora', serif;
+  --font-heading: 'Parisienne', cursive;
+  --font-size-base: 1rem;
+  --line-height-base: 1.6;
+}
+
+/* ============================
+   Global Reset & Typography
+   ============================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Lora', serif;
-  background-color: #efeeec;
-  color: #333;
+  font-family: var(--font-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   scroll-behavior: smooth;
-  box-sizing: border-box;
-}
-*, *::before, *::after {
-  box-sizing: inherit;
 }
 
-/* Bodytekst net iets compacter en uniform */
 p {
   font-size: 1.2rem;
-  line-height: 1.6;
+  line-height: var(--line-height-base);
   margin: 0 0 1em;
 }
-
-/* Koppen */
+h1, h2, h3 {
+  color: var(--color-text);
+  margin: 0 0 1rem;
+}
 h1 {
-  font-family: 'Parisienne', cursive;
+  font-family: var(--font-heading);
   font-size: 3.5rem;
   line-height: 1.2;
-  margin-bottom: 1rem;
-  color: #333;
 }
 h2 {
   font-size: 2.2rem;
   font-weight: 600;
-  margin: 1rem 0 0.5rem;
 }
 
 /* ============================
-   Secties & layout
+   Layout & Sections
    ============================ */
 .page, .photo-page {
   min-height: 100vh;
@@ -46,13 +62,12 @@ h2 {
   text-align: center;
   padding: 2em;
 }
-
 .content {
   max-width: 600px;
   width: 100%;
+  margin: 0 auto;
 }
 
-/* Foto-secties */
 .photo-page {
   margin: 0;
   padding: 0;
@@ -63,32 +78,30 @@ h2 {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  object-position: center;
   display: block;
 }
 
 /* ============================
-   Form & knop
+   Form Elements
    ============================ */
-.form-group {
-  display: contents;
-}
 form {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-gap: 1rem 1.5rem;
+  gap: 1rem 1.5rem;
   align-items: center;
+}
+.form-group {
+  display: contents;
 }
 label {
   justify-self: end;
   font-weight: bold;
 }
 input, textarea {
-  justify-self: start;
   width: 100%;
   padding: 0.5em;
   font-size: 1em;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-muted);
   border-radius: 5px;
 }
 button {
@@ -97,25 +110,15 @@ button {
   margin-top: 1.5rem;
   padding: 1em 2em;
   font-size: 1.1em;
-  background-color: #8e998b;
+  background-color: var(--color-primary);
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-/* Mobile: single-column formulier */
-@media (max-width: 400px) {
-  form {
-    grid-template-columns: 1fr;
-  }
-  label {
-    justify-self: start;
-  }
-}
-
 /* ============================
-   Countdown
+   Countdown Timer
    ============================ */
 .countdown-wrapper {
   display: flex;
@@ -133,127 +136,60 @@ button {
   height: 60px;
   border-radius: 50%;
   color: #fff;
-  font-size: 1.2em;
-  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.2em;
+  font-weight: bold;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
-#days { background-color: #b39976; }
-#hours { background-color: #8e998b; }
-#minutes { background-color: #b39976; }
-#seconds { background-color: #8e998b; }
+#days, #minutes {
+  background-color: var(--color-secondary);
+}
+#hours, #seconds {
+  background-color: var(--color-primary);
+}
 .countdown-label {
   margin-top: 0.5em;
-  font-size: 1em;
 }
 
 /* ============================
-   NIEUWE KADER IMPLEMENTATIE
+   Frame Wrapper
    ============================ */
 .page:not(.photo-page) {
   position: relative;
   margin: 2rem auto;
   max-width: 900px;
   min-height: 80vh;
-  
-  /* Frame als achtergrond */
   background-image: url('collage/slim.png');
-  background-size: 100% 100%; /* Stretch to fit container */
-  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
-  
-  /* Padding om inhoud binnen het frame te houden */
-  padding: 100px 120px; /* Adjust these values based on your frame's border thickness */
+  padding: 100px 120px;
 }
-
 .page:not(.photo-page) .content {
   position: relative;
   z-index: 1;
-  /*background: rgba(255, 255, 255, 0.9); /* Slight white background for readability */
   padding: 2rem;
   border-radius: 10px;
-  /*box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
-
-/* Alternative: If you want the frame to be more decorative without background on content */
 .page:not(.photo-page).no-content-bg .content {
   background: transparent;
   box-shadow: none;
   padding: 1rem;
 }
 
-/* Mobiel: aangepaste padding voor kleinere schermen */
-@media (max-width: 768px) {
-  .page.intro-eye {
-    padding: 60px 80px; /* Smaller padding on mobile */
-    margin: 1rem auto;
-  }
-  
-  .page.intro-eye .content {
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .page.intro-eye {
-    padding: 40px 60px; /* Even smaller padding on very small screens */
-  }
-  
-  .page.intro-eye .content {
-    padding: 1rem;
-  }
-}
-
 /* ============================
-   Specifieke pagina-stijlen
+   Page-specific Styles
    ============================ */
-/* Intro-eye - WITH FRAME, with scroll indicator */
-
-/* Simple fade in/out animation */
-@keyframes fadeInOut {
-  0% { opacity: 0; }
-  30% { opacity: 1; }
-  70% { opacity: 1; }
-  100% { opacity: 0; }
-}
-   
+/* Intro Eye */
 .page.intro-eye {
   background: #fff;
-  /* Add the frame background like other pages */
-  background-image: url('collage/slim.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 100px 120px; /* Same padding as other framed pages */
-  margin: 2rem auto;
-  max-width: 900px;
-  min-height: 80vh;
-  position: relative;
+  /* inherits frame from general framed pages */
 }
-.page.intro-eye .content {
-  position: relative;
-  z-index: 1;
-  /*background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-  padding: 2rem;
-  border-radius: 10px;
-  /*box-shadow: 0 4px 20px rgba(0,0,0,0.1);*/
-}
-.page.intro-eye h1{
+.page.intro-eye h1 {
   font-size: 2.5rem;
-  line-height: 1;
-  margin: 0;
-  color: #8e998b;
+  color: var(--color-primary);
 }
-
-.page.intro-eye h11 {
-  font-size: 1rem;
-  line-height: 1;
-  margin: 0;
-  color: #8e998b;
-}
-/* Scroll-indicator specifically for intro-eye page */
 .page.intro-eye .scroll-indicator {
   position: absolute;
   bottom: 20px;
@@ -261,93 +197,58 @@ button {
   transform: translateX(-50%);
   width: 60px;
   height: 60px;
-  border: 3px solid #8e998b; /* Thicker border */
+  border: 3px solid var(--color-primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255,255,255,0.8);
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   z-index: 2;
 }
 .page.intro-eye .scroll-indicator .arrow {
-  font-size: 2rem; /* Larger arrow */
-  font-weight: bold; /* Bolder arrow */
-  color: #8e998b;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-primary);
   animation: bounce 2s ease-in-out infinite;
 }
-/* Name reveal - geen frame, with fade animation */
+
+/* Name Reveal */
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  30%, 70% { opacity: 1; }
+}
 .page.name-reveal {
   background: #fff;
-  background-image: none; /* NO frame for name reveal */
   padding: 2em;
   margin: 0;
   min-height: 100vh;
-  animation: fadeInOut 3s ease-in-out forwards;
-}
-.page.name-reveal .content {
-  background: transparent;
-  box-shadow: none;
-  padding: 2em;
+  animation: fadeInOut 3s ease-in-out both;
 }
 
-
-
-
-/* Outro-eye - with frame */
-.page.outro-eye {
-  background: #fff;
-  /* Add the frame background */
-  background-image: url('collage/slim.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 100px 120px; /* Same padding as other framed pages */
-}
-.page.outro-eye .content {
-  /*background: rgba(255, 255, 255, 0.9);*/
-  /*box-shadow: 0 4px 20px rgba(0,0,0,0.1);*/
-  padding: 2rem;
-  border-radius: 10px;
-}
+/* Outro Eye */
 .page.outro-eye h1 {
   font-size: 5rem;
-  margin: 0;
 }
 .page.outro-eye p {
   font-size: 1.3rem;
   margin-top: 0.5em;
 }
 
-/* Intro fade-in offset */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  will-change: opacity, transform;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Praktische info & dresscode */
-.page.info-dresscode .divider {
+/* Practical Info & Dresscode */
+.divider {
   border: none;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid var(--color-muted);
   margin: 1.5em 0;
 }
-.page.info-dresscode .age-warning {
-  background-color: #fcefee;
-  border-left: 4px solid #b39976;
+.age-warning {
+  background-color: var(--color-warning-bg);
+  border-left: 4px solid var(--color-secondary);
   padding: 0.75em 1em;
   margin-bottom: 1em;
   font-style: italic;
-  color: #333;
 }
-
-/* Color circles for dresscode */
 .colors {
   display: flex;
   justify-content: center;
@@ -358,30 +259,25 @@ button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid #ddd;
+  border: 2px solid var(--color-muted);
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* Programma */
+/* Program & RSVP */
 .program-lines p {
   margin: 0.5em 0;
   font-size: 1.1rem;
   text-align: left;
-}
-.page.program .age-warning {
-  background-color: #fcefee;
-  border-left: 4px solid #b39976;
 }
 .page.program .contact {
   text-align: left;
   font-size: 1rem;
   line-height: 1.5;
 }
-
-/* RSVP sectie */
-.page.rsvp .closing-date {
-  background-color: #fcefee;
-  border-left: 4px solid #b39976;
+.page.rsvp .closing-date,
+.page.info-dresscode .closing-date {
+  background-color: var(--color-warning-bg);
+  border-left: 4px solid var(--color-secondary);
   padding: 0.75em 1em;
   margin: 1em 0;
   font-style: italic;
@@ -391,37 +287,33 @@ button {
   font-style: italic;
 }
 
-/* Make arrow thicker in scroll indicator */
-.page.intro-eye .scroll-indicator {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 60px;
-  border: 3px solid #8e998b; /* Increased from 2px to 3px */
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  /*background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);*/
-}
-.page.intro-eye .scroll-indicator .arrow {
-  font-size: 2rem; /* Increased from 1.5rem */
-  font-weight: bold; /* Make the arrow character bolder */
-  color: #8e998b;
-  animation: bounce 2s ease-in-out infinite;
-}
+/* ============================
+   Animations
+   ============================ */
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { 
-    transform: translateY(0); 
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+/* ============================
+   Responsive Breakpoints
+   ============================ */
+@media (max-width: 768px) {
+  .page:not(.photo-page) {
+    padding: 60px 80px;
+    margin: 1rem auto;
   }
-  40% { 
-    transform: translateY(-10px); 
+}
+
+@media (max-width: 480px) {
+  .page:not(.photo-page) {
+    padding: 40px 60px;
   }
-  60% { 
-    transform: translateY(-5px); 
+  form {
+    grid-template-columns: 1fr;
+  }
+  label {
+    justify-self: start;
   }
 }
