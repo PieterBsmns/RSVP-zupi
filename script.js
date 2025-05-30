@@ -1,103 +1,123 @@
-// Debug: zie of script.js geladen wordt
-console.log("[Debug] script.js geladen");
+// script.js
 
-// === Remove name-reveal after animation completes ===
-document.addEventListener("DOMContentLoaded", () => {
-  const nameRevealSection = document.querySelector('.page.name-reveal');
-  if (nameRevealSection) {
-    // Remove the element after animation completes (3 seconds)
+(() => {
+  'use strict';
+
+  // Configuration
+  const CONFIG = {
+    weddingDateISO: '2025-08-09T15:00:00',
+    nameRevealDuration: 3000,
+    countdownInterval: 1000,
+  };
+
+  /**
+   * Remove the name-reveal section after the initial animation.
+   */
+  const initNameReveal = () => {
+    const section = document.querySelector('.page.name-reveal');
+    if (!section) return;
+
     setTimeout(() => {
-      nameRevealSection.style.display = 'none';
-      console.log("[Debug] Name reveal section removed");
-    }, 3000);
-  }
-});
+      section.remove();
+    }, CONFIG.nameRevealDuration);
+  };
 
-// === Scroll to next section function ===
-function scrollToNext() {
-  const currentSection = document.querySelector('.page.intro-eye');
-  const nextSection = currentSection.nextElementSibling;
-  if (nextSection) {
-    nextSection.scrollIntoView({ behavior: 'smooth' });
-  }
-}
+  /**
+   * Smoothly scroll to the next section after intro.
+   */
+  const scrollToNext = () => {
+    const intro = document.querySelector('.page.intro-eye');
+    if (!intro) return;
+    const next = intro.nextElementSibling;
+    if (next) next.scrollIntoView({ behavior: 'smooth' });
+  };
 
-// === Countdown ===
-function updateCountdown() {
-  const weddingDate = new Date("2025-08-09T15:00:00").getTime();
-  const now = Date.now();
-  const diff = weddingDate - now;
-  if (diff <= 0) {
-    ["days","hours","minutes","seconds"].forEach(id => {
-      const element = document.getElementById(id);
-      if (element) element.textContent = "0";
+  window.scrollToNext = scrollToNext; // expose for onclick in HTML
+
+  /**
+   * Update countdown elements in the DOM.
+   */
+  const updateCountdown = () => {
+    const target = new Date(CONFIG.weddingDateISO).getTime();
+    const now = Date.now();
+    const diff = Math.max(0, target - now);
+
+    const units = [
+      { id: 'days',    ms: 86400000 },
+      { id: 'hours',   ms: 3600000  },
+      { id: 'minutes', ms: 60000    },
+      { id: 'seconds', ms: 1000     },
+    ];
+
+    units.forEach(({ id, ms }) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const value = Math.floor(diff / ms) % (id === 'days' ? Infinity : (86400000 / ms));
+      el.textContent = String(value).padStart(2, '0');
     });
-    return;
-  }
+  };
 
-  const days    = Math.floor(diff / 86400000);
-  const hours   = Math.floor((diff % 86400000) / 3600000);
-  const minutes = Math.floor((diff % 3600000)  / 60000);
-  const seconds = Math.floor((diff % 60000)    / 1000);
+  /**
+   * Initialize countdown timer.
+   */
+  const initCountdown = () => {
+    updateCountdown();
+    setInterval(updateCountdown, CONFIG.countdownInterval);
+  };
 
-  const dayEl = document.getElementById("days");
-  const hourEl = document.getElementById("hours");
-  const minEl = document.getElementById("minutes");
-  const secEl = document.getElementById("seconds");
+  /**
+   * Handle RSVP form submission via EmailJS.
+   */
+  const initRSVP = () => {
+    const form = document.getElementById('rsvp-form');
+    if (!form || !window.emailjs) return;
 
-  if (dayEl) dayEl.textContent = days;
-  if (hourEl) hourEl.textContent = hours;
-  if (minEl) minEl.textContent = minutes;
-  if (secEl) secEl.textContent = seconds;
-}
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const thanksMsg = document.getElementById('thanks');
 
-setInterval(updateCountdown, 1000);
-updateCountdown();
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!submitBtn) return;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Verzenden…';
+      thanksMsg?.classList.remove('visible');
 
-// === EmailJS‐submit & Fade‐in ===
-document.addEventListener("DOMContentLoaded", () => {
-  // EmailJS‐submit
-  const form      = document.getElementById("rsvp-form");
-  const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
-  const thanksMsg = document.getElementById("thanks");
-
-  if (form && submitBtn) {
-    form.addEventListener("submit", e => {
-      e.preventDefault();                       // voorkom default scroll-to-top
-      submitBtn.disabled    = true;
-      submitBtn.textContent = "Verzenden…";
-      if (thanksMsg) thanksMsg.style.display = "none";
-
-      emailjs.sendForm(
-        'service_j12dpb9',    // jouw Service ID
-        'template_p45lme8',   // jouw Template ID
-        form                  // of '#rsvp-form'
-      ).then(() => {
-        if (thanksMsg) thanksMsg.style.display = "block";
+      try {
+        await emailjs.sendForm('service_j12dpb9', 'template_p45lme8', form);
+        thanksMsg?.classList.add('visible');
         form.reset();
-      }).catch(err => {
-        console.error("EmailJS error:", err);
-        alert("Er ging iets mis bij het versturen. Probeer het nog eens.");
-      }).finally(() => {
-        submitBtn.disabled    = false;
-        submitBtn.textContent = "Bevestigen";
-      });
-    });
-  }
-
-  // Fade‐in op scroll
-  const faders = document.querySelectorAll(".fade-in");
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        obs.unobserve(entry.target);
+      } catch (err) {
+        console.error('EmailJS error:', err);
+        alert('Er ging iets mis bij het versturen. Probeer het nog eens.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Bevestigen';
       }
     });
-  }, {
-    threshold: 0.2,
-    rootMargin: "0px 0px -10% 0px"
-  });
+  };
 
-  faders.forEach(el => observer.observe(el));
-});
+  /**
+   * Apply scroll-based fade-in animations.
+   */
+  const initFadeInOnScroll = () => {
+    const options = { threshold: 0.2, rootMargin: '0px 0px -10% 0px' };
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  };
+
+  // Initialize all features when DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    initNameReveal();
+    initCountdown();
+    initRSVP();
+    initFadeInOnScroll();
+  });
+})();
