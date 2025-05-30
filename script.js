@@ -10,33 +10,23 @@
     countdownInterval: 1000,
   };
 
-  /**
-   * Remove the name-reveal section after the initial animation.
-   */
+  /** Remove the name-reveal section after animation. */
   const initNameReveal = () => {
     const section = document.querySelector('.page.name-reveal');
     if (!section) return;
-
-    setTimeout(() => {
-      section.remove();
-    }, CONFIG.nameRevealDuration);
+    setTimeout(() => section.remove(), CONFIG.nameRevealDuration);
   };
 
-  /**
-   * Smoothly scroll to the next section after intro.
-   */
+  /** Smooth scroll to the next section. */
   const scrollToNext = () => {
     const intro = document.querySelector('.page.intro-eye');
     if (!intro) return;
     const next = intro.nextElementSibling;
     if (next) next.scrollIntoView({ behavior: 'smooth' });
   };
+  window.scrollToNext = scrollToNext;
 
-  window.scrollToNext = scrollToNext; // expose for onclick in HTML
-
-  /**
-   * Update countdown elements in the DOM.
-   */
+  /** Update countdown timer elements. */
   const updateCountdown = () => {
     const target = new Date(CONFIG.weddingDateISO).getTime();
     const now = Date.now();
@@ -57,27 +47,39 @@
     });
   };
 
-  /**
-   * Initialize countdown timer.
-   */
+  /** Initialize countdown. */
   const initCountdown = () => {
     updateCountdown();
     setInterval(updateCountdown, CONFIG.countdownInterval);
   };
 
-  /**
-   * Handle RSVP form submission via EmailJS.
-   */
+  /** Setup RSVP form: required fields, dynamic button state, and EmailJS. */
   const initRSVP = () => {
     const form = document.getElementById('rsvp-form');
     if (!form || !window.emailjs) return;
 
     const submitBtn = form.querySelector('button[type="submit"]');
     const thanksMsg = document.getElementById('thanks');
+    const nameInput = form.querySelector('#names');
+    const telInput = form.querySelector('#telephone');
+
+    // Disable submit until required fields (name + telephone) are filled
+    const updateSubmitState = () => {
+      const canSubmit = nameInput.value.trim() && telInput.value.trim();
+      submitBtn.disabled = !canSubmit;
+    };
+    nameInput.addEventListener('input', updateSubmitState);
+    telInput.addEventListener('input', updateSubmitState);
+    updateSubmitState();
 
     form.addEventListener('submit', async e => {
+      // HTML5 validation: show built-in messages if invalid
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        form.reportValidity();
+        return;
+      }
       e.preventDefault();
-      if (!submitBtn) return;
       submitBtn.disabled = true;
       submitBtn.textContent = 'Verzenden…';
       thanksMsg?.classList.remove('visible');
@@ -86,6 +88,7 @@
         await emailjs.sendForm('service_j12dpb9', 'template_p45lme8', form);
         thanksMsg?.classList.add('visible');
         form.reset();
+        updateSubmitState();
       } catch (err) {
         console.error('EmailJS error:', err);
         alert('Er ging iets mis bij het versturen. Probeer het nog eens.');
@@ -96,11 +99,8 @@
     });
   };
 
-  /**
-   * Apply scroll-based fade-in animations.
-   */
+  /** Fade-in elements on scroll into view. */
   const initFadeInOnScroll = () => {
-    const options = { threshold: 0.2, rootMargin: '0px 0px -10% 0px' };
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -108,12 +108,12 @@
           obs.unobserve(entry.target);
         }
       });
-    }, options);
+    }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   };
 
-  // Initialize all features when DOM is ready
+  // Initialize when DOM is ready
   document.addEventListener('DOMContentLoaded', () => {
     initNameReveal();
     initCountdown();
