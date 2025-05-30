@@ -171,10 +171,10 @@ button {
 .page:not(.photo-page) .content {
   position: relative;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.9); /* Slight white background for readability */
+  /*background: rgba(255, 255, 255, 0.9); /* Slight white background for readability */
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  /*box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 /* Alternative: If you want the frame to be more decorative without background on content */
@@ -226,10 +226,10 @@ button {
 .page.intro-eye .content {
   position: relative;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  /*background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  /*box-shadow: 0 4px 20px rgba(0,0,0,0.1);*/
 }
 .page.intro-eye h1{
   font-size: 2.5rem;
@@ -303,8 +303,8 @@ button {
   padding: 100px 120px; /* Same padding as other framed pages */
 }
 .page.outro-eye .content {
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  /*background: rgba(255, 255, 255, 0.9);*/
+  /*box-shadow: 0 4px 20px rgba(0,0,0,0.1);*/
   padding: 2rem;
   border-radius: 10px;
 }
@@ -402,8 +402,8 @@ button {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  /*background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);*/
 }
 .page.intro-eye .scroll-indicator .arrow {
   font-size: 1.8rem; /* Increased from 1.5rem */
