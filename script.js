@@ -3,7 +3,7 @@ console.log("[Debug] script.js geladen");
 
 // === Countdown ===
 function updateCountdown() {
-  const weddingDate = new Date("2025-08-09T15:00:00").getTime();
+  const weddingDate = new Date("2025-08-09T18:30:00").getTime();
   const now = Date.now();
   const diff = weddingDate - now;
   if (diff <= 0) {
@@ -13,10 +13,11 @@ function updateCountdown() {
     return;
   }
 
-  const days    = Math.floor(diff / 86400000);
-  const hours   = Math.floor((diff % 86400000) / 3600000);
-  const minutes = Math.floor((diff % 3600000)  / 60000);
-  const seconds = Math.floor((diff % 60000)    / 1000);
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
 
   document.getElementById("days").textContent    = days;
   document.getElementById("hours").textContent   = hours;
