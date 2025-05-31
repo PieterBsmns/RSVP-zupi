@@ -89,10 +89,11 @@
       thanksMsg?.classList.remove('visible');
 
       try {
-        const result = await emailjs.sendForm(
-          'service_j12dpb9',    // check: klopt dit exact met jouw service-ID?
-          'template_p45lme8',   // check: klopt dit exact met jouw template-ID?
-          form
+          const result = await emailjs.sendForm(
+          'service_j12dpb9',    // jouw service-ID
+          'template_p45lme8',   // jouw template-ID
+          form,                 // de <form>-elementreferentie
+          'U7x0W_K_fgyaWVT03'   // je Public Key (vroeger: user ID)
         );
         console.log('EmailJS sendForm response:', result);
         thanksMsg?.classList.add('visible');
