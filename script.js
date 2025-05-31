@@ -5,7 +5,7 @@
 
   // Configuration
   const CONFIG = {
-    weddingDateISO: '2025-08-09T15:00:00',
+    weddingDateISO: '2025-08-09T18:30:00',
     nameRevealDuration: 3000,
     countdownInterval: 1000,
   };
