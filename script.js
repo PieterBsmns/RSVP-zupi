@@ -32,20 +32,20 @@
     const now = Date.now();
     const diff = Math.max(0, target - now);
 
-    const units = [
-      { id: 'days',    ms: 86400000 },
-      { id: 'hours',   ms: 3600000  },
-      { id: 'minutes', ms: 60000    },
-      { id: 'seconds', ms: 1000     },
-    ];
-
-    units.forEach(({ id, ms }) => {
+  const units = [
+    { id: 'days',    ms: 1000 * 60 * 60 * 24 },
+    { id: 'hours',   ms: 1000 * 60 * 60 },
+    { id: 'minutes', ms: 1000 * 60 },
+    { id: 'seconds', ms: 1000 }
+  ];
+  
+    units.forEach(({ id, ms }, index) => {
+      const value = Math.floor(diff / ms);
+      diff = diff % ms;
       const el = document.getElementById(id);
-      if (!el) return;
-      const value = Math.floor(diff / ms) % (id === 'days' ? Infinity : (86400000 / ms));
-      el.textContent = String(value).padStart(2, '0');
-    });
-  };
+      if (el) el.textContent = String(value).padStart(2, '0');
+  });
+};
 
   /** Initialize countdown. */
   const initCountdown = () => {
