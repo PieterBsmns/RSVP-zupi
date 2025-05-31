@@ -27,10 +27,10 @@
   window.scrollToNext = scrollToNext;
 
   /** Update countdown timer elements. */
-  const updateCountdown = () => {
-    const target = new Date(CONFIG.weddingDateISO).getTime();
-    const now = Date.now();
-    const diff = Math.max(0, target - now);
+ const updateCountdown = () => {
+  const target = new Date(CONFIG.weddingDateISO).getTime();
+  const now    = Date.now();
+  let   diff   = Math.max(0, target - now); // let ipv const
 
   const units = [
     { id: 'days',    ms: 1000 * 60 * 60 * 24 },
@@ -39,11 +39,11 @@
     { id: 'seconds', ms: 1000 }
   ];
   
-    units.forEach(({ id, ms }, index) => {
-      const value = Math.floor(diff / ms);
-      diff = diff % ms;
-      const el = document.getElementById(id);
-      if (el) el.textContent = String(value).padStart(2, '0');
+  units.forEach(({ id, ms }) => {
+    const value = Math.floor(diff / ms);
+    diff = diff % ms;
+    const el = document.getElementById(id);
+    if (el) el.textContent = String(value).padStart(2, '0');
   });
 };
 
