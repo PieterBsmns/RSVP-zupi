@@ -100,7 +100,7 @@
         updateSubmitState();
       } catch (err) {
         console.error('EmailJS error details:', err);
-        alert('Er ging iets mis bij het versturen: ' + (err.text || err.message));
+        alert('Er ging iets mis bij het versturen:\n' + JSON.stringify(err, null, 2));
       } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Bevestigen';
