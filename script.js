@@ -56,7 +56,10 @@
   /** Setup RSVP form: required fields, dynamic button state, and EmailJS. */
   const initRSVP = () => {
     const form = document.getElementById('rsvp-form');
-    if (!form || !window.emailjs) return;
+    if (!form || !window.emailjs) {
+      console.warn('RSVP init skipped: formulier of EmailJS niet gevonden.');
+      return;
+    }
 
     const submitBtn = form.querySelector('button[type="submit"]');
     const thanksMsg = document.getElementById('thanks');
@@ -80,18 +83,24 @@
         return;
       }
       e.preventDefault();
+      
       submitBtn.disabled = true;
       submitBtn.textContent = 'Verzenden…';
       thanksMsg?.classList.remove('visible');
 
       try {
-        await emailjs.sendForm('service_j12dpb9', 'template_p45lme8', form);
+        const result = await emailjs.sendForm(
+          'service_j12dpb9',    // check: klopt dit exact met jouw service-ID?
+          'template_p45lme8',   // check: klopt dit exact met jouw template-ID?
+          form
+        );
+        console.log('EmailJS sendForm response:', result);
         thanksMsg?.classList.add('visible');
         form.reset();
         updateSubmitState();
       } catch (err) {
-        console.error('EmailJS error:', err);
-        alert('Er ging iets mis bij het versturen. Probeer het nog eens.');
+        console.error('EmailJS error details:', err);
+        alert('Er ging iets mis bij het versturen: ' + (err.text || err.message));
       } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Bevestigen';
