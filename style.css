@@ -302,6 +302,9 @@ button {
   font-style: italic;
 }
 
+.visible {
+  display: block !important;
+}
 /* ============================
    Animations
    ============================ */
