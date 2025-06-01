@@ -75,39 +75,52 @@
     telInput.addEventListener('input', updateSubmitState);
     updateSubmitState();
 
-    form.addEventListener('submit', async e => {
-      // HTML5 validation: show built-in messages if invalid
-      if (!form.checkValidity()) {
-        e.preventDefault();
-        form.reportValidity();
-        return;
-      }
-      e.preventDefault();
-      
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Verzenden…';
-      thanksMsg?.classList.remove('visible');
+form.addEventListener('submit', async e => {
+  const errorMsg = document.getElementById('form-error');
+  
+  if (!form.checkValidity()) {
+    e.preventDefault();
+    form.reportValidity();
 
-      try {
-          const result = await emailjs.sendForm(
-          'service_j12dpb9',    // jouw service-ID
-          'template_p45lme8',   // jouw template-ID
-          form,                 // de <form>-elementreferentie
-          'U7x0W_K_fgyaWVT03'   // je Public Key (vroeger: user ID)
-        );
-        console.log('EmailJS sendForm response:', result);
-        thanksMsg?.classList.add('visible');
-        form.reset();
-        updateSubmitState();
-      } catch (err) {
-        console.error('EmailJS error details:', err);
-        alert('Er ging iets mis bij het versturen:\n' + JSON.stringify(err, null, 2));
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Bevestigen';
-      }
-    });
-  };
+    // Toon foutmelding
+    if (errorMsg) {
+      errorMsg.textContent = 'Gelieve naam en telefoonnummer in te vullen.';
+      errorMsg.style.display = 'block';
+      
+      // Verberg foutmelding na 10 seconden
+      setTimeout(() => {
+        errorMsg.style.display = 'none';
+      }, 10000);
+    }
+    return;
+  }
+
+  e.preventDefault();
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Verzenden…';
+  thanksMsg?.classList.remove('visible');
+
+  try {
+    const result = await emailjs.sendForm(
+      'service_j12dpb9',
+      'template_p45lme8',
+      form,
+      'U7x0W_K_fgyaWVT03'
+    );
+    console.log('EmailJS sendForm response:', result);
+    thanksMsg?.classList.add('visible');
+    form.reset();
+    updateSubmitState();
+  } catch (err) {
+    console.error('EmailJS error details:', err);
+    alert('Er ging iets mis bij het versturen:\n' + JSON.stringify(err, null, 2));
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Bevestigen';
+  }
+});
+
+};
 
   /** Fade-in elements on scroll into view. */
   const initFadeInOnScroll = () => {
