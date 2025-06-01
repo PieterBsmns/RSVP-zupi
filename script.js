@@ -85,7 +85,7 @@ window.initRSVP = () => {
       // Toon foutmelding vóór reportValidity, zodat het zichtbaar is
       if (errorMsg) {
         errorMsg.textContent = 'Gelieve naam en telefoonnummer in te vullen.';
-        errorMsg.style.display = 'block';
+        errorMsg.classList.add('visible');
 
         setTimeout(() => {
           errorMsg.style.display = 'none';
