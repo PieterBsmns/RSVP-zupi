@@ -212,7 +212,7 @@ button {
   transform: translateX(-50%);
   width: 60px;
   height: 60px;
-  border: 3px solid var(--color-primary);
+  border: 3px solid var(--scroll-arrow-color);
   border-radius: 50%;
   display: flex;
   align-items: center;
