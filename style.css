@@ -45,12 +45,12 @@ h1, h2, h3 {
 }
 h1 {
   font-family: var(--font-heading);
-  font-size: 5rem;
+  font-size: 8rem;
   line-height: 1.2;
 }
 h2 {
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 600;
 }
 
@@ -226,7 +226,7 @@ button {
 .page.intro-eye .scroll-indicator .arrow {
   font-size: 2rem;
   font-weight: bold;
-  color: var(--color-primary);
+  color: var(--scroll-arrow-color);
   animation: bounce 2s ease-in-out infinite;
 }
 
