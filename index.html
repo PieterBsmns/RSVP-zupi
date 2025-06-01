@@ -199,58 +199,54 @@ document.addEventListener('DOMContentLoaded', () => {
 let rsvpInitialized = false;
 
   // Functie om EmailJS te initialiseren
-  const initEmailJS = () => {
-    if (window.emailjs && typeof emailjs.init === 'function') {
-      try {
-        emailjs.init('U7x0W_K_fgyaWVT03');
-        console.log('✅ EmailJS succesvol geïnitialiseerd');
+ const initEmailJS = () => {
+      if (window.emailjs && typeof emailjs.init === 'function') {
+        try {
+          emailjs.init('U7x0W_K_fgyaWVT03');
+          console.log('✅ EmailJS succesvol geïnitialiseerd');
 
-        if (!rsvpInitialized && typeof initRSVP === 'function') {
-          initRSVP();
-          rsvpInitialized = true;
-          console.log('✅ initRSVP() uitgevoerd na EmailJS');
+          if (typeof window.initRSVP === 'function') {
+            window.initRSVP();
+            console.log('✅ initRSVP() aangeroepen na EmailJS');
+          } else {
+            console.warn('⚠️ initRSVP is nog niet beschikbaar');
+          }
+
+          return true;
+        } catch (error) {
+          console.error('❌ Fout bij EmailJS init:', error);
+          return false;
         }
-
-        return true;
-      } catch (error) {
-        console.error('❌ Fout bij EmailJS init:', error);
+      } else {
+        console.log('⏳ EmailJS nog niet beschikbaar, wacht 200ms...');
         return false;
       }
-    } else {
-      console.log('⏳ EmailJS nog niet beschikbaar, wacht 200ms...');
-      return false;
-    }
-  };
+    };
 
-  // Probeer meerdere keren (retry)
-  let attempts = 0;
-  const maxAttempts = 20; // tot 4 seconden wachten
+    let attempts = 0;
+    const maxAttempts = 10;
 
-  const tryInit = () => {
-    attempts++;
-    if (initEmailJS()) {
-      console.log(`✅ EmailJS klaar na ${attempts} pogingen`);
-    } else if (attempts < maxAttempts) {
-      setTimeout(tryInit, 200);
-    } else {
-      console.error('❌ EmailJS kon niet worden geladen na 20 pogingen');
-      console.log('🌐 Probeer alternatieve EmailJS CDN...');
+    const tryInit = () => {
+      attempts++;
+      if (initEmailJS()) {
+        console.log('🎉 EmailJS klaar na', attempts, 'pogingen');
+      } else if (attempts < maxAttempts) {
+        setTimeout(tryInit, 200);
+      } else {
+        console.error('❌ EmailJS kon niet worden geladen na', maxAttempts, 'pogingen');
+        console.log('🌐 Probeer alternatieve EmailJS CDN...');
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+        script.onload = () => {
+          console.log('✅ Alternatieve EmailJS geladen:', typeof window.emailjs);
+          initEmailJS();
+        };
+        document.head.appendChild(script);
+      }
+    };
 
-      const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-      script.onload = () => {
-        console.log('✅ Alternatieve EmailJS geladen:', typeof window.emailjs);
-        initEmailJS();
-      };
-      script.onerror = () => {
-        console.error('❌ Alternatieve EmailJS kon niet worden geladen.');
-      };
-      document.head.appendChild(script);
-    }
-  };
-
-  tryInit();
-});
+    tryInit();
+  });
 </script>
 
 
