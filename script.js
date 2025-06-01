@@ -142,7 +142,7 @@ const initRSVP = () => {
   document.addEventListener('DOMContentLoaded', () => {
     initNameReveal();
     initCountdown();
-    initRSVP();
+    /*initRSVP();*/
     initFadeInOnScroll();
   });
 })();
