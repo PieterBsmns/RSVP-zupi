@@ -181,14 +181,10 @@
 
   <!-- Scripts -->
 <!-- 1. EmailJS SDK -->
-<script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
-<!-- 2. Initialisatie van EmailJS -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    emailjs.init('U7x0W_K_fgyaWVT03');
-  });
-</script>
-<!-- 3. Je script.js dat initRSVP aanroept -->
+<script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js" onload="emailjs.init('U7x0W_K_fgyaWVT03')"></script>
+
+<!-- 2. Jouw script (laadt pas nadat SDK en init klaar zijn) -->
 <script src="script.js" defer></script>
+
 </body>
 </html>
