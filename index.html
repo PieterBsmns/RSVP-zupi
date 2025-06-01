@@ -1,247 +1,189 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pieter & Zufaisa Trouwen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-    
-<body>
-
-  <!-- 0) Namen-reveal vóór de intro -->
-  <section class="page name-reveal">
-    <div class="content">
-      <h1 class="names-flare">
-        Pieter<br>&<br>Zufaisa
-      </h1>
-    </div>
-  </section>
-    
-  <!-- Eye-catcher intro met fade-in -->
-  <section class="page intro-eye fade-in">
-    <div class="content">
-      <h1>Wij gaan trouwen.</h1>
-      <h11>Kon piisii anga wi!</h11>
-    </div>
-  </section>
-
-  <section class="photo-page">
-    <img src="collage/ximage00003.jpeg" alt="Intro Foto">
-  </section>
-    
-  <section class="page intro fade-in">
-    <div class="content">
-   <!-- Nieuwe intro-tekst -->
-    <h1>Uw Uitnodiging</h1>
-    <h2 class="intro-text">
-      Wij willen graag dat u deel uitmaakt van deze bijzondere mijlpaal.
-    </h2>
-     <p>09 Augustus 2025</p>
-      <div class="countdown-wrapper">
-        <div class="countdown-item">
-          <div class="countdown-circle" id="days">--</div>
-          <div class="countdown-label">dagen</div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-circle" id="hours">--</div>
-          <div class="countdown-label">uren</div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-circle" id="minutes">--</div>
-          <div class="countdown-label">minuten</div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-circle" id="seconds">--</div>
-          <div class="countdown-label">seconden</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="photo-page">
-    <img src="collage/ximage00005.jpeg" alt="Info Foto">
-  </section>
-    
- <!-- Samengevoegde Praktische Info + Dresscode -->
-  <section class="page info-dresscode fade-in">
-    <div class="content">
-      <h1>Praktische informatie</h1>
-
-      <!-- 18+ waarschuwing -->
-      <p class="age-warning">
-        ℹ️ Let op: dit is een evenement voor gasten van <strong>18 jaar en ouder</strong>.
-      </p>
-
-      <!-- Praktische info -->
-      <p><strong>Datum:</strong> 9 augustus 2025</p>
-      <p><strong>Tijd:</strong> 18:30</p>
-      <p><strong>Locatie:</strong> Utopia Heritage</p>
-      <p><strong>Adres:</strong> Anton Drachtenweg 164, Paramaribo</p>
-
-      <!-- Scheiding -->
-      <hr class="divider">
-
-      <!-- Dresscode -->
-      <p><strong>Dresscode</strong></p>
-      <p>Formele kledij</p>
-      <div class="colors">
-        <div class="color-circle" style="background-color: #664b3a;"></div>
-        <div class="color-circle" style="background-color: #92724c;"></div>
-        <div class="color-circle" style="background-color: #bcab97;"></div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="photo-page">
-    <img src="collage/ximage00002.jpeg" alt="Dresscode Foto">
-  </section>
-
- <section class="page program fade-in">
-  <div class="content">
-      
-    <h1>Dagprogramma</h1>
-
-    <div class="program-lines">
-      <p><strong>18:30 - </strong>Inloop receptie</p>
-      <p><strong>19:00 - </strong>Felicitaties</p>
-      <p><strong>19:30 - </strong>Buffet</p>
-      <p><strong>21:00 - </strong>Openingsdans</p>
-      <p><strong>... - </strong>Avondfeest</p>
-    </div>
-
-  </div>
-</section>
-<!-- Oude Dresscode sectie  
-  <section class="page dresscode fade-in">
-    <div class="content">
-      <h1>Dresscode</h1>
-      <p>Draag iets in de kleuren:</p>
-      <div class="colors">
-        <div class="color-circle" style="background-color: #b39976;"></div>
-        <div class="color-circle" style="background-color: #8e998b;"></div>
-        <div class="color-circle" style="background-color: #6c7469;"></div>
-      </div>
-    </div>
-  </section>
--->
-
-  <section class="photo-page">
-    <img src="collage/ximage00002x.jpeg" alt="RSVP Foto">
-  </section>
-    
- <section class="page rsvp fade-in">
-  <div class="content">
-    <h1>Bevestig je aanwezigheid</h1>
-
-    <!-- Melding sluitingsdatum -->
-    <p class="closing-date">
-      ℹ️ De gastenlijst sluit op <strong>20 juli</strong>.
-    </p>
-
-    <form id="rsvp-form">
-      <div class="form-group">
-        <label for="names">Naam:</label>
-        <input
-          id="names"
-          name="names"
-          type="text"
-          required
-          placeholder="Bijv. André"
-        >
-      </div>
-
-      <div class="form-group">
-        <label for="plusone-name">Naam van je +1:</label>
-        <input
-          id="plusone-name"
-          name="plusoneName"
-          type="text"
-          placeholder="Naam van je gast"
-        >
-      </div>
-
-      <div class="form-group">
-        <label for="remarks">Opmerkingen:</label>
-        <textarea
-          id="remarks"
-          name="remarks"
-          placeholder="(optioneel)"
-        ></textarea>
-      </div>
-
-      <input type="hidden" name="_captcha" value="false">
-      <button type="submit">Bevestigen</button>
-    </form>
-
-    <p id="thanks" style="display:none;">
-      U staat nu op de gastenlijst. <br>
-      Bedankt voor het bevestigen!
-    </p>
-    <p class="footer-message">
-      We kijken ernaar uit jullie te zien.
-    </p><br>
-    <p>Cadeautip: ✉️</p>
-  </div>
-</section>
-
-    
-<section class="photo-page">
-    <img src="collage/image00001_1xx.jpg" alt="Programma foto">
-</section>
-    
- <section class="page program fade-in">
-  <div class="content">
-    <h1>Contactpersoon</h1>
-    <p class="contact">
-      <strong>Zufaisa Van Cooten</strong><br>
-      📞 +32 471 574 217<br>
-
-      <strong>Jillery Van Cooten</strong><br>
-      📞 +597 747 6019<br>
-    </p>
-  </div>
-</section>
-
-<section class="photo-page">
-    <img src="collage/image00099.jpeg" alt="seeyousoon foto">
-</section>
-    
-  <!-- See You Soon afsluiter met fade-in -->
-  <section class="page outro-eye fade-in">
-    <div class="content">
-      <h1>See You Soon!</h1>
-      <p>We kunnen niet wachten om met jullie te vieren.</p>
-  <!-- GIF embed -->
-      <div class="tenor-gif-embed"
-         data-postid="25012101"
-         data-share-method="host"
-         data-aspect-ratio="1.33333"
-         data-width="100%">
-        <a href="https://tenor.com/view/scaler-create-impact-party-chill-gif-25012101">
-        Scaler Create Impact GIF
-        </a> from
-        <a href="https://tenor.com/search/scaler-gifs">Scaler GIFs</a>
-     </div>
-      <script type="text/javascript"
-            async
-            src="https://tenor.com/embed.js">
-      </script>
-
-        
-    </div>
-  </section>
-    
-<!-- 1) EmailJS via jsDelivr -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pieter &amp; Zufaisa Trouwen</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Parisienne&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- email JS -->
+   <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
   <script>
-    // Vervang door jouw echte Public Key uit EmailJS
     emailjs.init('U7x0W_K_fgyaWVT03');
   </script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main id="main-content">
 
-  <!-- 2) Jouw eigen script.js (countdown, EmailJS-sendForm, fade-in) -->
-  <script src="script.js"></script>
+    <!-- 1) Namenreveal -->
+    <section id="name-reveal" class="page name-reveal" aria-live="polite">
+      <div class="content">
+        <h2 class="names-flare">Pieter &amp;<br>Zufaisa</h2>
+      </div>
+    </section>
+
+    <!-- 2) Intro met eye-catcher -->
+    <section id="intro-eye" class="page intro-eye fade-in">
+      <div class="content">
+        <h2>Wij gaan trouwen</h2>
+        <p class="intro-subtitle">Kon piisii anga wi!</p>
+      </div>
+      <button class="scroll-indicator" aria-label="Scroll naar uitnodiging" onclick="scrollToNext()">
+        <span class="arrow">↓</span>
+      </button>
+    </section>
+
+    <!-- FOTO tussen intro en uitnodiging -->
+    <section class="photo-page">
+      <img src="collage/ximage00003.jpeg" alt="Intro Foto">
+    </section>
+
+    <!-- 3) Uitnodigingstekst + countdown -->
+    <section id="invitation" class="page intro fade-in">
+      <div class="content">
+        <h2>Uw invitatie</h2>
+        <p class="intro-text">Wij willen graag dat u deel uitmaakt van deze mijlpaal.</p>
+        <p><time datetime="2025-08-09">09 Augustus 2025</time></p>
+        <div class="countdown-wrapper" aria-label="Countdown tot de trouwdag">
+          <div class="countdown-item">
+            <div class="countdown-circle" id="days">--</div>
+            <div class="countdown-label">dagen</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-circle" id="hours">--</div>
+            <div class="countdown-label">uren</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-circle" id="minutes">--</div>
+            <div class="countdown-label">minuten</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-circle" id="seconds">--</div>
+            <div class="countdown-label">seconden</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOTO tussen uitnodiging en praktische info -->
+    <section class="photo-page">
+      <img src="collage/ximage00005.jpeg" alt="Info Foto">
+    </section>
+
+    <!-- 4) Praktische info + dresscode -->
+    <section id="info-dresscode" class="page info-dresscode fade-in">
+      <div class="content">
+        <h2>Praktische info</h2>
+        <p class="age-warning">ℹ️ Enkel voor gasten van <strong>18 jaar en ouder</strong>.</p>
+        <p><strong>Datum:</strong> 9 augustus 2025</p>
+        <p><strong>Tijd:</strong> 18:30</p>
+        <p><strong>Locatie:</strong> Utopia Heritage</p>
+        <p><strong>Adres:</strong> Anton Drachtenweg 164, Paramaribo</p>
+        <hr class="divider">
+        <p><strong>Dresscode</strong></p>
+        <p>Formele kledij</p>
+        <div class="colors">
+          <div class="color-circle" style="background-color: #664b3a;"></div>
+          <div class="color-circle" style="background-color: #92724c;"></div>
+          <div class="color-circle" style="background-color: #bcab97;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOTO tussen praktische info en programma -->
+    <section class="photo-page">
+      <img src="collage/ximage00002.jpeg" alt="Dresscode Foto">
+    </section>
+
+    <!-- 5) Programma -->
+    <section id="programma" class="page program fade-in">
+      <div class="content">
+        <h2>Programma</h2>
+        <div class="program-lines">
+          <p><strong>18:30 - </strong>Inloop receptie</p>
+          <p><strong>19:00 - </strong>Felicitaties</p>
+          <p><strong>19:30 - </strong>Buffet</p>
+          <p><strong>21:00 - </strong>Openingsdans</p>
+          <p><strong>... - </strong>Avondfeest</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOTO tussen programma en RSVP -->
+    <section class="photo-page">
+      <img src="collage/ximage00002x.jpeg" alt="RSVP Foto">
+    </section>
+
+    <!-- 6) RSVP -->
+    <section id="rsvp" class="page rsvp fade-in">
+      <div class="content">
+        <h2>Bevestig je aanwezigheid</h2>
+        <p class="closing-date">ℹ️ De gastenlijst sluit op <strong>20 juli</strong>.</p>
+        <form id="rsvp-form">
+          <div class="form-group">
+            <label for="names">Naam:</label>
+            <input id="names" name="names" type="text" required placeholder="Bijv. André">
+          </div>
+          <div class="form-group">
+            <label for="plusoneName">Naam van je +1:</label>
+            <input id="plusoneName" name="plusoneName" type="text" placeholder="Naam van je gast">
+          </div>
+          <div class="form-group">
+            <label for="telephone">Telefoonnummer:</label>
+            <input id="telephone" name="telephone" type="tel" required placeholder="Bijv. +32 471 574 217">
+          </div>
+          <input type="hidden" name="_captcha" value="false">
+          <button type="submit" id="bevestigBtn" disabled>Bevestigen</button>
+        </form>
+        <p id="thanks" style="display:none;">U staat nu op de gastenlijst. <br>Bedankt voor het bevestigen!</p>
+        <p class="footer-message">We kijken ernaar uit jullie te zien.</p><br>
+        <p>Cadeautip: ✉️</p>
+      </div>
+    </section>
+
+    <!-- FOTO tussen RSVP en contact -->
+    <section class="photo-page">
+      <img src="collage/image00001_1xx.jpg" alt="Programma foto">
+    </section>
+
+    <!-- 7) Contactpersoon -->
+    <section id="contact" class="page program fade-in">
+      <div class="content">
+        <h2>Contactpersoon</h2>
+        <p class="contact">
+          <strong>Zufaisa Van Cooten</strong><br>
+          📞 +32 471 574 217<br>
+          <strong>Jillerey Van Cooten</strong><br>
+          📞 +597 747 6019<br>
+        </p>
+      </div>
+    </section>
+
+    <!-- FOTO tussen contact en outro -->
+    <section class="photo-page">
+      <img src="collage/image00099.jpeg" alt="seeyousoon foto">
+    </section>
+
+    <!-- 8) See You Soon afsluiter -->
+    <section id="outro-eye" class="page outro-eye fade-in">
+      <div class="content">
+        <h2>See You Soon!</h2>
+        <p>We kunnen niet wachten om met jullie te vieren.</p>
+        <!-- GIF embed -->
+        <div class="tenor-gif-embed" data-postid="25012101" data-share-method="host" data-aspect-ratio="1.33333" data-width="100%">
+          <a href="https://tenor.com/view/scaler-create-impact-party-chill-gif-25012101">Scaler Create Impact GIF</a> from <a href="https://tenor.com/search/scaler-gifs">Scaler GIFs</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
+  <script>emailjs.init('U7x0W_K_fgyaWVT03');</script>
+  <script src="script.js" defer></script>
 </body>
 </html>

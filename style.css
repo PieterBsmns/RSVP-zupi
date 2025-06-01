@@ -1,364 +1,333 @@
+/* ============================
+   Variables & Root Styles
+   ============================ */
+:root {
+  /* Colors */
+  --color-bg: #efeeec;
+  --color-text: #333;
+  --color-primary: #d9b05e;
+  --color-secondary: #b39976;
+  --color-muted: #ccc;
+  --color-warning-bg: #fcefee;
+  
+  /* Typography */
+  --font-base: 'Lora', serif;
+  --font-heading: 'Parisienne', cursive;
+  --font-size-base: 1rem;
+  --line-height-base: 1.6;
+}
+
+/* ============================
+   Global Reset & Typography
+   ============================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lora', serif;
-    background-color: #efeeec;
-    color: #333;
-     scroll-behavior: smooth; 
-}
-p {
-  font-size: 1.25rem;    /* vergroot van de standaard 1rem naar 1.2rem */
-  line-height: 1.6;     /* iets meer witruimte tussen regels */
-}
-
-h1 {
-    font-family: 'Parisienne', cursive;
-    font-size: 5em;
-    line-height: 1.1;       /* houdt de regels mooi bij elkaar */
-    margin-bottom: 1rem;  /* ruimte onder de h1 */
-}
-
-h2 {
-    font-size: 2em;
-    margin-top: 0.5em;
-}
-
-.page, .photo-page {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2em;
-    box-sizing: border-box;
-}
-
-.page1 { background-color: #f6f6f6; }
-.page2 { background-color: #ffffff; }
-.page3 { background-color: #f6f6f6; }
-.page4 { background-color: #ffffff; }
-
-.content {
-    max-width: 600px;
-    width: 100%;
-}
-
-.photo-page { margin:0;
-              padding:0;
-              background: transparent;
-              overflow:hidden; 
-}
-
-.photo-page img { width:100vw;
-                  height:100vh; 
-                  object-fit:cover;
-                  object-position:center;
-                  display:block; 
-}
-
-.form-group {
-    display: contents;
-}
-
-form {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-row-gap: 1rem;
-    grid-column-gap: 1.5rem;
-    align-items: center;
-}
-
-label {
-    justify-self: end;
-    font-weight: bold;
-}
-
-input, textarea {
-    justify-self: start;
-    width: 100%;
-    padding: 0.5em;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-button {
-    grid-column: 1 / -1;
-    justify-self: center;
-    margin-top: 1rem;
-    background-color: #8e998b;
-    color: white;
-    padding: 0.75em;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-}
-
-.colors {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    margin-top: 1em;
-}
-
-.color-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid white;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-
-.countdown-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    margin-top: 1.5em;
-}
-
-.countdown-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.countdown-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    color: white;
-    font-size: 1.2em;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-#days { background-color: #b39976; }
-#hours { background-color: #8e998b; }
-#minutes { background-color: #b39976; }
-#seconds { background-color: #8e998b; }
-
-.countdown-label {
-    margin-top: 0.5em;
-    font-size: 0.9em;
-}
-
-.footer-message {
-    margin-top: 2em;
-    font-style: italic;
-}
-
-/* Nieuwe “program” pagina */
-.page.program {
-  background-color: #fefdfc;
-  padding: 2em;
-}
-
-.program-list {
-  list-style: none;
-  padding: 0;
-  margin: 1em 0 2em;
-}
-
-.program-list li {
-  margin: 0.5em 0;
-  font-size: 1.1rem;
-}
-
-.program-list strong {
-  color: #8e998b;
-  margin-right: 0.5em;
-}
-
-.page.program .contact {
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.page.program .contact a {
-  color: #8e998b;
-  text-decoration: none;
-}
-
-/* 18+ waarschuwing op de programma-pagina */
-.page.program .age-warning {
-  background-color: #fcefee;
-  /*border-left: 4px solid #b39976;*/
-  padding: 0.75em 1em;
-  margin: 1em 0;
-  font-style: italic;
-  color: #333;
-}
-
-/* Eye-catcher Intro pagina */
-.page.intro-eye {
-  background-color: #ffffff;    /* kies een achtergrondkleur of een lichte overlay */
-  padding: 0;
   margin: 0;
+  padding: 0;
+  font-family: var(--font-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: var(--line-height-base);
+  margin: 0 0 1em;
+}
+h1, h2, h3 {
+  color: var(--color-text);
+  margin: 0 0 1rem;
+}
+h1 {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  line-height: 1.2;
+}
+h2 {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+/* ============================
+   Layout & Sections
+   ============================ */
+.page, .photo-page {
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 2em;
 }
 
-.page.intro-eye .content {
-  max-width: none;
+.content {
+  max-width: 600px;
   width: 100%;
-  padding: 2em;
+  margin: 0 auto;
 }
 
-.page.intro-eye h1 {
-  font-size: 5.5rem;                      /* lekker groot, pas aan naar wens */
-  line-height: 1;
+.photo-page {
   margin: 0;
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+}
+.photo-page img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
 }
 
-.page.intro-eye h11 {
-  font-size: 5.5rem;                      /* lekker groot, pas aan naar wens */
-  line-height: 1;
-  margin: 0;
-  color: #8e998b;
+/* ============================
+   Form Elements
+   ============================ */
+form {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem 1.5rem;
+  align-items: center;
 }
-
-/* Alleen op de countdown-pagina (intro) het h1 1rem groter */
-.page.intro h1 {
-  font-size: 6rem; /* was 5rem, nu +1rem */
+.form-group {
+  display: contents;
 }
-/* Fade-in blijft werken zoals voorheen */
-
-
-/* Fade-in basisstijl */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  will-change: opacity, transform;
+label {
+  justify-self: end;
+  font-weight: bold;
 }
-
-/* Zodra .visible toegevoegd wordt, speelt de animatie af */
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+input, textarea {
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1em;
+  border: 1px solid var(--color-muted);
+  border-radius: 5px;
 }
-
-/* Samengevoegde Praktische Info & Dresscode pagina */
-.page.info-dresscode {
-  background-color: #ffffff;
-  padding: 2em;
-}
-
-.page.info-dresscode .divider {
+button {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: 1.5rem;
+  padding: 1em 2em;
+  font-size: 1.1em;
+  background-color: var(--color-primary);
+  color: #fff;
   border: none;
-  border-top: 1px solid #ccc;
-  margin: 1.5em 0;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-/* 18+ waarschuwing */
-.page.info-dresscode .age-warning {
-  background-color: #fcefee;
-  border-left: 4px solid #b39976;
-  padding: 0.75em 1em;
-  margin-bottom: 1em;
-  font-style: italic;
-  color: #333;
+/* ============================
+   Countdown Timer
+   ============================ */
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 1.5em;
 }
-
-
-/* Praktische info en dresscode staan al gestyled via .content p en .colors */
-
-/* Sluitingsdatum melding */
-.closing-date {
-  background-color: #fcefee;
-  border-left: 4px solid #b39976;
-  padding: 0.75em 1em;
-  margin: 1em 0;
-  font-style: italic;
-  color: #333;
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
-
-/* Een beetje extra ruimte voor de +1 regels */
-.page.rsvp .form-group:nth-child(3) {
+.countdown-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+#days, #minutes {
+  background-color: var(--color-secondary);
+}
+#hours, #seconds {
+  background-color: var(--color-primary);
+}
+.countdown-label {
   margin-top: 0.5em;
 }
 
-/* Naam +1 veld iets smaller */
-#plusone-name {
-  max-width: 100%;
+/* ============================
+   Frame Wrapper
+   ============================ */
+.page:not(.photo-page) {
+  position: relative;
+  margin: 2rem auto;
+  max-width: 900px;
+  min-height: 80vh;
+  background-image: url('collage/slim.png');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 120px;
+}
+.page:not(.photo-page) .content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  border-radius: 10px;
+}
+.page:not(.photo-page).no-content-bg .content {
+  background: transparent;
+  box-shadow: none;
+  padding: 1rem;
 }
 
-/* Afsluitende “See You Soon” pagina */
-.page.outro-eye {
-  background-color: #ffffff;
-  padding: 0;
-  margin: 0;
+/* ============================
+   Page-specific Styles
+   ============================ */
+/* Intro Eye */
+.page.intro-eye {
+  /* Combine white background + frame for eye-catcher page */
+  background: #fff url('collage/slim.png') center/cover no-repeat;
+  position: relative;
+  margin: 2rem auto;
+  max-width: 900px;
+  min-height: 80vh;
+  padding: 100px 120px;
+}
+
+.page.intro-eye .content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  border-radius: 10px;
+}
+.page.intro-eye h1 {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+}
+.page.intro-eye .scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  border: 3px solid var(--color-primary);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  cursor: pointer;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+.page.intro-eye .scroll-indicator .arrow {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  animation: bounce 2s ease-in-out infinite;
 }
 
-.page.outro-eye .content {
-  width: 100%;
+/* Name Reveal */
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  30%, 70% { opacity: 1; }
+}
+.page.name-reveal {
+  background: #fff;
   padding: 2em;
-}
-
-.page.outro-eye h1 {
-  font-size: 5.5rem;   /* net even wat kleiner dan intro, of pas zelf aan */
   margin: 0;
+  min-height: 100vh;
+  animation: fadeInOut 3s ease-in-out both;
 }
 
+/* Outro Eye */
+.page.outro-eye h1 {
+  font-size: 5rem;
+}
 .page.outro-eye p {
   font-size: 1.3rem;
   margin-top: 0.5em;
 }
 
-/* Intro-tekst onder de namen */
-.intro-text {
-  font-family: 'Lora', serif;
-  font-size: 1.25rem;
-  margin: 1rem 0;
-  line-height: 1.4;
-  color: #555;
-  text-align: center;
+/* Practical Info & Dresscode */
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-muted);
+  margin: 1.5em 0;
 }
-/* Name-reveal full-screen overlay */
-.page.name-reveal {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;  height: 100vh;
-  background: #ffffff;
+.age-warning {
+  background-color: var(--color-warning-bg);
+  border-left: 4px solid var(--color-secondary);
+  padding: 0.75em 1em;
+  margin-bottom: 1em;
+  font-style: italic;
+}
+.colors {
   display: flex;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  z-index: 50;
-  /* 3s totaal: 0→0.6s fade-in, 0.6→1.8s hold, 1.8→3s fade-out+zoom */
-  animation: nameReveal 4s ease-in-out forwards;
-  opacity: 0; /* start onzichtbaar */
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.color-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--color-muted);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.names-flare {
-  font-family: 'Parisienne', cursive;
-  font-size: 6rem;
-  line-height: 1;
-  color: #8e998b;
-  margin: 0;
+/* Program & RSVP */
+.program-lines p {
+  margin: 0.5em 0;
+  font-size: 1.1rem;
+  text-align: left;
+}
+.page.program .contact {
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.page.rsvp .closing-date,
+.page.info-dresscode .closing-date {
+  background-color: var(--color-warning-bg);
+  border-left: 4px solid var(--color-secondary);
+  padding: 0.75em 1em;
+  margin: 1em 0;
+  font-style: italic;
+}
+.page.rsvp .footer-message {
+  margin-top: 1.5em;
+  font-style: italic;
 }
 
-/* Keyframes met fade-in (0–20%), stilstand (20–60%), fade-out+zoom (60–100%) */
-@keyframes nameReveal {
-  0%   { opacity: 0;   transform: scale(0.8); }
-  20%  { opacity: 1;   transform: scale(0.95);   }
-  60%  { opacity: 1;   transform: scale(1);   }
-  100% { opacity: 0;   transform: scale(1.2); }
+/* ============================
+   Animations
+   ============================ */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
 }
 
-/* Zorg dat body scroll/touch pas na fade-out werkt */
-.page.name-reveal ~ * {
-  /* geen extra delay nodig: overlay blokkeert tot anim. klaar */
+/* ============================
+   Responsive Breakpoints
+   ============================ */
+@media (max-width: 768px) {
+  .page:not(.photo-page) {
+    padding: 60px 80px;
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .page:not(.photo-page) {
+    padding: 40px 60px;
+  }
+  form {
+    grid-template-columns: 1fr;
+  }
+  label {
+    justify-self: start;
+  }
 }
