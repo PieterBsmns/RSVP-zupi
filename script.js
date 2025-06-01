@@ -54,7 +54,7 @@
   };
 
 /** Setup RSVP form: required fields, dynamic button state, and EmailJS. */
-const initRSVP = () => {
+window.initRSVP = () => {
   const form = document.getElementById('rsvp-form');
   console.log('form gevonden?', document.getElementById('rsvp-form'));
   console.log('emailjs beschikbaar?', window.emailjs);
