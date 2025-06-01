@@ -43,7 +43,7 @@ h1, h2, h3 {
 }
 h1 {
   font-family: var(--font-heading);
-  font-size: 4.5rem;
+  font-size: 5rem;
   line-height: 1.2;
 }
 h2 {
@@ -63,6 +63,7 @@ h2 {
   text-align: center;
   padding: 2em;
 }
+
 .content {
   max-width: 600px;
   width: 100%;
@@ -192,6 +193,7 @@ button {
   min-height: 80vh;
   padding: 100px 120px;
 }
+
 .page.intro-eye .content {
   position: relative;
   z-index: 1;
