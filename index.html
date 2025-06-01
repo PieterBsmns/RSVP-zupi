@@ -201,6 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         emailjs.init('U7x0W_K_fgyaWVT03');
         console.log('EmailJS succesvol geïnitialiseerd');
+        if (typeof initRSVP === 'function') {
+          initRSVP(); 
+          console.log('initRSVP() uitgevoerd na EmailJS');
+        }
         return true;
       } catch (error) {
         console.error('Fout bij EmailJS init:', error);
