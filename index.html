@@ -7,12 +7,7 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Parisienne&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- email JS -->
-   <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
-  <script>
-    emailjs.init('U7x0W_K_fgyaWVT03');
-  </script>
-  <script src="script.js" defer></script>
+
 </head>
 <body>
   <main id="main-content">
@@ -185,10 +180,15 @@
   </main>
 
   <!-- Scripts -->
-   <!--
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
-  <script>emailjs.init('U7x0W_K_fgyaWVT03');</script>
-  <script src="script.js" defer></script>
-   -->
+<!-- 1. EmailJS SDK -->
+<script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+<!-- 2. Initialisatie van EmailJS -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    emailjs.init('U7x0W_K_fgyaWVT03');
+  });
+</script>
+<!-- 3. Je script.js dat initRSVP aanroept -->
+<script src="script.js" defer></script>
 </body>
 </html>
