@@ -180,22 +180,63 @@
   </main>
 
 <!-- Scripts -->
-<!-- 1. Laad EmailJS SDK -->
-<script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+<!-- 1. Laad EmailJS SDK met debug -->
+<script 
+  src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"
+  onload="console.log('EmailJS script geladen:', typeof window.emailjs);"
+  onerror="console.error('Fout bij laden EmailJS script');">
+</script>
 
 <!-- 2. Laad jouw script -->
 <script src="script.js" defer></script>
 
-<!-- 3. Initialiseer EmailJS nadat beide scripts geladen zijn -->
+<!-- 3. Wacht langer en probeer EmailJS te initialiseren -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialiseer EmailJS
-  if (window.emailjs) {
-    emailjs.init('U7x0W_K_fgyaWVT03');
-    console.log('EmailJS geïnitialiseerd');
-  } else {
-    console.error('EmailJS niet geladen');
-  }
+  console.log('DOM geladen, EmailJS check:', typeof window.emailjs);
+  
+  // Functie om EmailJS te initialiseren
+  const initEmailJS = () => {
+    if (window.emailjs) {
+      try {
+        emailjs.init('U7x0W_K_fgyaWVT03');
+        console.log('EmailJS succesvol geïnitialiseerd');
+        return true;
+      } catch (error) {
+        console.error('Fout bij EmailJS init:', error);
+        return false;
+      }
+    } else {
+      console.log('EmailJS nog niet beschikbaar, wacht 200ms...');
+      return false;
+    }
+  };
+  
+  // Probeer meerdere keren
+  let attempts = 0;
+  const maxAttempts = 20; // 4 seconden max
+  
+  const tryInit = () => {
+    attempts++;
+    if (initEmailJS()) {
+      console.log('EmailJS klaar na', attempts, 'pogingen');
+    } else if (attempts < maxAttempts) {
+      setTimeout(tryInit, 200);
+    } else {
+      console.error('EmailJS kon niet worden geladen na', maxAttempts, 'pogingen');
+      // Probeer alternatieve CDN
+      console.log('Probeer alternatieve EmailJS CDN...');
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+      script.onload = () => {
+        console.log('Alternatieve EmailJS geladen:', typeof window.emailjs);
+        initEmailJS();
+      };
+      document.head.appendChild(script);
+    }
+  };
+  
+  tryInit();
 });
 </script>
 
