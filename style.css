@@ -302,8 +302,15 @@ button {
   font-style: italic;
 }
 
+/* Zorgt ervoor dat 'visible' elementen zichtbaar worden */
 .visible {
   display: block !important;
+}
+
+/* Standaard verbergen van feedbackberichten */
+#thanks,
+#form-error {
+  display: none;
 }
 /* ============================
    Animations
