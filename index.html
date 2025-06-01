@@ -179,15 +179,25 @@
 
   </main>
 
-  <!-- Scripts -->
-<!-- 1. Laad de EmailJS SDK -->
-<script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js" onload="
-  emailjs.init('U7x0W_K_fgyaWVT03');
-  if (typeof initRSVP === 'function') initRSVP();
-"></script>
+<!-- Scripts -->
+<!-- 1. Laad EmailJS SDK -->
+<script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
 
-<!-- 2. Laad jouw script (defer = veilig) -->
+<!-- 2. Laad jouw script -->
 <script src="script.js" defer></script>
+
+<!-- 3. Initialiseer EmailJS nadat beide scripts geladen zijn -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialiseer EmailJS
+  if (window.emailjs) {
+    emailjs.init('U7x0W_K_fgyaWVT03');
+    console.log('EmailJS geïnitialiseerd');
+  } else {
+    console.error('EmailJS niet geladen');
+  }
+});
+</script>
 
 
 </body>
