@@ -56,8 +56,6 @@
 /** Setup RSVP form: required fields, dynamic button state, and EmailJS. */
 window.initRSVP = () => {
   const form = document.getElementById('rsvp-form');
-  console.log('form gevonden?', document.getElementById('rsvp-form'));
-  console.log('emailjs beschikbaar?', window.emailjs);
   if (!form || !window.emailjs) {
     console.warn('RSVP init skipped: formulier of EmailJS niet gevonden.');
     return;
@@ -69,38 +67,47 @@ window.initRSVP = () => {
   const telInput = form.querySelector('#telephone');
   const errorMsg = document.getElementById('form-error');
 
-  // Disable submit until required fields (name + telephone) are filled
-  const updateSubmitState = () => {
-    const canSubmit = nameInput.value.trim() && telInput.value.trim();
-    submitBtn.disabled = !canSubmit;
+  // Validation feedback on input (live feedback)
+  const checkFields = () => {
+    const nameFilled = !!nameInput.value.trim();
+    const telFilled = !!telInput.value.trim();
+
+    // Enable button if at least one field is filled (so they can trigger submit/error)
+    submitBtn.disabled = !(nameFilled || telFilled);
+
+    // Hide error as soon as both are filled
+    if (nameFilled && telFilled) {
+      errorMsg.style.display = 'none';
+      errorMsg.classList.remove('visible');
+    }
   };
-  nameInput.addEventListener('input', updateSubmitState);
-  telInput.addEventListener('input', updateSubmitState);
-  updateSubmitState();
+
+  nameInput.addEventListener('input', checkFields);
+  telInput.addEventListener('input', checkFields);
+  checkFields();
 
   form.addEventListener('submit', async e => {
-    if (!form.checkValidity()) {
-      e.preventDefault();
+    e.preventDefault(); // always prevent default
 
-      // Toon foutmelding vóór reportValidity, zodat het zichtbaar is
-      if (errorMsg) {
-        errorMsg.textContent = 'Gelieve naam en telefoonnummer in te vullen.';
-        errorMsg.classList.add('visible');
+    const nameFilled = !!nameInput.value.trim();
+    const telFilled = !!telInput.value.trim();
 
-        setTimeout(() => {
-          errorMsg.style.display = 'none';
-        }, 10000);
-      }
-
-      form.reportValidity();
+    if (!nameFilled || !telFilled) {
+      // Show error below button
+      errorMsg.textContent = 'Gelieve naam en telefoonnummer in te vullen.';
+      errorMsg.style.display = 'block';
+      errorMsg.classList.add('visible');
+      // Don't proceed
       return;
     }
 
-    e.preventDefault();
+    // Hide error
+    errorMsg.style.display = 'none';
+    errorMsg.classList.remove('visible');
+
     submitBtn.disabled = true;
     submitBtn.textContent = 'Verzenden…';
     thanksMsg?.classList.remove('visible');
-    if (errorMsg) errorMsg.style.display = 'none'; // foutmelding verbergen als vorige poging fout was
 
     try {
       const result = await emailjs.sendForm(
@@ -109,12 +116,10 @@ window.initRSVP = () => {
         form,
         'U7x0W_K_fgyaWVT03'
       );
-      console.log('EmailJS sendForm response:', result);
       thanksMsg?.classList.add('visible');
       form.reset();
-      updateSubmitState();
+      checkFields();
     } catch (err) {
-      console.error('EmailJS error details:', err);
       alert('Er ging iets mis bij het versturen:\n' + JSON.stringify(err, null, 2));
     } finally {
       submitBtn.disabled = false;
@@ -122,6 +127,7 @@ window.initRSVP = () => {
     }
   });
 };
+
 
 
   /** Fade-in elements on scroll into view. */
