@@ -311,7 +311,13 @@ button {
 #thanks,
 #form-error {
   display: none;
+  color: red;
+  margin-top: 0.5em;
 }
+#form-error.visible {
+  display: block;
+}
+
 /* ============================
    Animations
    ============================ */
