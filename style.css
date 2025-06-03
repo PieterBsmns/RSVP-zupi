@@ -281,17 +281,6 @@ button {
 /* ============================
    Locatie en Details pagina's
    ============================ */
-
-/* Uniek voor locatie pagina (optioneel, eventueel voor eigen styling) */
-.page.info-location h2 {
-  color: var(--color-primary);
-}
-
-.page.info-location p {
-  font-size: 1.3rem;
-  margin-bottom: 0.8em;
-}
-
 /* Details: prominente kleurenbollen */
 .colors.prominent-colors {
   justify-content: center;
@@ -303,16 +292,6 @@ button {
   height: 70px !important;
   border-width: 3px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-}
-
-.page.info-details h2 {
-  color: var(--color-secondary);
-  margin-bottom: 1.5rem;
-}
-
-.page.info-details p {
-  font-size: 1.25rem;
-  margin-bottom: 1em;
 }
 
 /* Zodat op mobiel de grote bollen niet buiten beeld vallen */
