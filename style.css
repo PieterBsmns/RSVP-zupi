@@ -202,8 +202,10 @@ button {
   border-radius: 10px;
 }
 .page.intro-eye h1 {
-  font-size: 2.5rem;
-  color: var(--color-primary);
+  font-size: 5rem;
+}
+.page.intro-eye h2 {
+  font-size: 4rem;
 }
 .page.intro-eye .scroll-indicator {
   position: absolute;
