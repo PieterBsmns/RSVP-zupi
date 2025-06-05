@@ -5,10 +5,11 @@
   /* Colors */
   --color-bg: #efeeec;
   --color-text: #333;
-  --color-primary: #d9b05e;
+  --color-primary: #8e998b;
   --color-secondary: #b39976;
   --color-muted: #ccc;
   --color-warning-bg: #fcefee;
+  --scroll-arrow-color: #d9b05e;
   
   /* Typography */
   --font-base: 'Lora', serif;
@@ -43,12 +44,12 @@ h1, h2, h3 {
 }
 h1 {
   font-family: var(--font-heading);
-  font-size: 5rem;
+  font-size: 8rem;
   line-height: 1.2;
 }
 h2 {
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 600;
 }
 
@@ -201,8 +202,10 @@ button {
   border-radius: 10px;
 }
 .page.intro-eye h1 {
-  font-size: 2.5rem;
-  color: var(--color-primary);
+  font-size: 4.5rem;
+}
+.page.intro-eye h2 {
+  font-size: 3rem;
 }
 .page.intro-eye .scroll-indicator {
   position: absolute;
@@ -211,7 +214,7 @@ button {
   transform: translateX(-50%);
   width: 60px;
   height: 60px;
-  border: 3px solid var(--color-primary);
+  border: 3px solid var(--scroll-arrow-color);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -224,7 +227,7 @@ button {
 .page.intro-eye .scroll-indicator .arrow {
   font-size: 2rem;
   font-weight: bold;
-  color: var(--color-primary);
+  color: var(--scroll-arrow-color);
   animation: bounce 2s ease-in-out infinite;
 }
 
@@ -277,14 +280,42 @@ button {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+/* ============================
+   Locatie en Details pagina's
+   ============================ */
+/* Details: prominente kleurenbollen */
+.colors.prominent-colors {
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0 1rem 0;
+}
+.colors.prominent-colors .color-circle {
+  width: 70px !important;
+  height: 70px !important;
+  border-width: 3px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+/* Zodat op mobiel de grote bollen niet buiten beeld vallen */
+@media (max-width: 480px) {
+  .colors.prominent-colors .color-circle {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  .colors.prominent-colors {
+    gap: 1rem;
+  }
+}
+
+
 /* Program & RSVP */
 .program-lines p {
   margin: 0.5em 0;
   font-size: 1.1rem;
-  text-align: left;
+  text-align: center;
 }
 .page.program .contact {
-  text-align: left;
+  text-align: center;
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -299,6 +330,22 @@ button {
 .page.rsvp .footer-message {
   margin-top: 1.5em;
   font-style: italic;
+}
+
+/* Zorgt ervoor dat 'visible' elementen zichtbaar worden */
+.visible {
+  display: block !important;
+}
+
+/* Standaard verbergen van feedbackberichten */
+#thanks,
+#form-error {
+  display: none;
+  color: red;
+  margin-top: 0.5em;
+}
+#form-error.visible {
+  display: block;
 }
 
 /* ============================

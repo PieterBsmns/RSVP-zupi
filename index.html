@@ -7,12 +7,7 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Parisienne&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- email JS -->
-   <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
-  <script>
-    emailjs.init('U7x0W_K_fgyaWVT03');
-  </script>
-  <script src="script.js" defer></script>
+
 </head>
 <body>
   <main id="main-content">
@@ -27,8 +22,8 @@
     <!-- 2) Intro met eye-catcher -->
     <section id="intro-eye" class="page intro-eye fade-in">
       <div class="content">
-        <h2>Wij gaan trouwen</h2>
-        <p class="intro-subtitle">Kon piisii anga wi!</p>
+        <h1>Woo toow!</h1>
+        <h2>Kon piisii anga wi!</h2>
       </div>
       <button class="scroll-indicator" aria-label="Scroll naar uitnodiging" onclick="scrollToNext()">
         <span class="arrow">↓</span>
@@ -72,26 +67,37 @@
       <img src="collage/ximage00005.jpeg" alt="Info Foto">
     </section>
 
-    <!-- 4) Praktische info + dresscode -->
-    <section id="info-dresscode" class="page info-dresscode fade-in">
-      <div class="content">
-        <h2>Praktische info</h2>
-        <p class="age-warning">ℹ️ Enkel voor gasten van <strong>18 jaar en ouder</strong>.</p>
-        <p><strong>Datum:</strong> 9 augustus 2025</p>
-        <p><strong>Tijd:</strong> 18:30</p>
-        <p><strong>Locatie:</strong> Utopia Heritage</p>
-        <p><strong>Adres:</strong> Anton Drachtenweg 164, Paramaribo</p>
-        <hr class="divider">
-        <p><strong>Dresscode</strong></p>
-        <p>Formele kledij</p>
-        <div class="colors">
-          <div class="color-circle" style="background-color: #664b3a;"></div>
-          <div class="color-circle" style="background-color: #92724c;"></div>
-          <div class="color-circle" style="background-color: #bcab97;"></div>
-        </div>
-      </div>
+<!-- 4) Locatie -->
+<section id="info-location" class="page info-location fade-in">
+  <div class="content">
+    <h2>Locatie</h2>
+    <p><strong>Datum:</strong><br> 9 augustus 2025</p>
+    <p><strong>Tijd:</strong><br> 18:30</p>
+    <p><strong>Locatie:</strong><br> Utopia Heritage</p>
+    <p><strong>Adres:</strong><br> Anton Drachtenweg 164, Paramaribo</p>
+  </div>
+</section>
+    
+    <!-- FOTO tussen praktische info en programma -->
+    <section class="photo-page">
+      <img src="collage/image00042xx.jpeg" alt="Details Foto">
     </section>
 
+<!-- 5) Details (nieuw) -->
+<section id="info-details" class="page info-details fade-in">
+  <div class="content">
+    <h2>Details</h2>
+    <p class="age-warning">ℹ️ Enkel voor gasten van <strong>18 jaar en ouder</strong>.</p>
+    <p><strong>Dresscode:</strong><br>
+    Formele kledij</p>
+    <div class="colors prominent-colors">
+      <div class="color-circle" style="background-color: #664b3a; width:70px; height:70px;"></div>
+      <div class="color-circle" style="background-color: #92724c; width:70px; height:70px;"></div>
+      <div class="color-circle" style="background-color: #bcab97; width:70px; height:70px;"></div>
+    </div>
+  </div>
+</section>
+    
     <!-- FOTO tussen praktische info en programma -->
     <section class="photo-page">
       <img src="collage/ximage00002.jpeg" alt="Dresscode Foto">
@@ -100,7 +106,7 @@
     <!-- 5) Programma -->
     <section id="programma" class="page program fade-in">
       <div class="content">
-        <h2>Programma</h2>
+        <h2>Verloop</h2>
         <div class="program-lines">
           <p><strong>18:30 - </strong>Inloop receptie</p>
           <p><strong>19:00 - </strong>Felicitaties</p>
@@ -119,12 +125,13 @@
     <!-- 6) RSVP -->
     <section id="rsvp" class="page rsvp fade-in">
       <div class="content">
-        <h2>Bevestig je aanwezigheid</h2>
-        <p class="closing-date">ℹ️ De gastenlijst sluit op <strong>20 juli</strong>.</p>
+        <h2>Gastenlijst</h2>
+        <p class="closing-date">ℹ️ De gastenlijst sluit op <strong>20 juli</strong>.</p> 
+        
         <form id="rsvp-form">
           <div class="form-group">
             <label for="names">Naam:</label>
-            <input id="names" name="names" type="text" required placeholder="Bijv. André">
+            <input id="names" name="names" type="text" placeholder="Bijv. André">
           </div>
           <div class="form-group">
             <label for="plusoneName">Naam van je +1:</label>
@@ -132,14 +139,15 @@
           </div>
           <div class="form-group">
             <label for="telephone">Telefoonnummer:</label>
-            <input id="telephone" name="telephone" type="tel" required placeholder="Bijv. +32 471 574 217">
+            <input id="telephone" name="telephone" type="tel" placeholder="Bijv. +32 471 574 217">
           </div>
           <input type="hidden" name="_captcha" value="false">
           <button type="submit" id="bevestigBtn" disabled>Bevestigen</button>
         </form>
-        <p id="thanks" style="display:none;">U staat nu op de gastenlijst. <br>Bedankt voor het bevestigen!</p>
-        <p class="footer-message">We kijken ernaar uit jullie te zien.</p><br>
-        <p>Cadeautip: ✉️</p>
+        <p id="form-error" style="color: red; margin-top: 0.5em;"></p>
+        <p id="thanks" U staat nu op de gastenlijst. <br>Bedankt voor het bevestigen!</p>
+         <!-- <p class="footer-message">Uw aanwezigheid maakt ons feest compleet!</p><br>-->
+        <p><br>Cadeautip: ✉️</p>
       </div>
     </section>
 
@@ -151,10 +159,11 @@
     <!-- 7) Contactpersoon -->
     <section id="contact" class="page program fade-in">
       <div class="content">
-        <h2>Contactpersoon</h2>
+        <h2>Contact</h2>
         <p class="contact">
           <strong>Zufaisa Van Cooten</strong><br>
           📞 +32 471 574 217<br>
+          <br>
           <strong>Jillerey Van Cooten</strong><br>
           📞 +597 747 6019<br>
         </p>
@@ -170,7 +179,7 @@
     <section id="outro-eye" class="page outro-eye fade-in">
       <div class="content">
         <h2>See You Soon!</h2>
-        <p>We kunnen niet wachten om met jullie te vieren.</p>
+        <p>Uw aanwezigheid maakt ons feest compleet!</p>
         <!-- GIF embed -->
         <div class="tenor-gif-embed" data-postid="25012101" data-share-method="host" data-aspect-ratio="1.33333" data-width="100%">
           <a href="https://tenor.com/view/scaler-create-impact-party-chill-gif-25012101">Scaler Create Impact GIF</a> from <a href="https://tenor.com/search/scaler-gifs">Scaler GIFs</a>
@@ -181,9 +190,76 @@
 
   </main>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
-  <script>emailjs.init('U7x0W_K_fgyaWVT03');</script>
-  <script src="script.js" defer></script>
+<!-- Scripts -->
+<!-- 1. Laad EmailJS SDK met debug -->
+<script 
+  src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"
+  onload="console.log('EmailJS script geladen:', typeof window.emailjs);"
+  onerror="console.error('Fout bij laden EmailJS script');">
+</script>
+
+<!-- 2. Laad jouw script -->
+<script src="script.js" defer></script>
+
+<!-- 3. Wacht langer en probeer EmailJS te initialiseren -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM geladen, EmailJS check:', typeof window.emailjs);
+  
+  // Functie om EmailJS te initialiseren
+let rsvpInitialized = false;
+
+  // Functie om EmailJS te initialiseren
+ const initEmailJS = () => {
+      if (window.emailjs && typeof emailjs.init === 'function') {
+        try {
+          emailjs.init('U7x0W_K_fgyaWVT03');
+          console.log('✅ EmailJS succesvol geïnitialiseerd');
+
+          if (typeof window.initRSVP === 'function') {
+            window.initRSVP();
+            console.log('✅ initRSVP() aangeroepen na EmailJS');
+          } else {
+            console.warn('⚠️ initRSVP is nog niet beschikbaar');
+          }
+
+          return true;
+        } catch (error) {
+          console.error('❌ Fout bij EmailJS init:', error);
+          return false;
+        }
+      } else {
+        console.log('⏳ EmailJS nog niet beschikbaar, wacht 200ms...');
+        return false;
+      }
+    };
+
+    let attempts = 0;
+    const maxAttempts = 10;
+
+    const tryInit = () => {
+      attempts++;
+      if (initEmailJS()) {
+        console.log('🎉 EmailJS klaar na', attempts, 'pogingen');
+      } else if (attempts < maxAttempts) {
+        setTimeout(tryInit, 200);
+      } else {
+        console.error('❌ EmailJS kon niet worden geladen na', maxAttempts, 'pogingen');
+        console.log('🌐 Probeer alternatieve EmailJS CDN...');
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+        script.onload = () => {
+          console.log('✅ Alternatieve EmailJS geladen:', typeof window.emailjs);
+          initEmailJS();
+        };
+        document.head.appendChild(script);
+      }
+    };
+
+    tryInit();
+  });
+</script>
+
+
 </body>
 </html>

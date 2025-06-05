@@ -53,61 +53,82 @@
     setInterval(updateCountdown, CONFIG.countdownInterval);
   };
 
-  /** Setup RSVP form: required fields, dynamic button state, and EmailJS. */
-  const initRSVP = () => {
-    const form = document.getElementById('rsvp-form');
-    if (!form || !window.emailjs) {
-      console.warn('RSVP init skipped: formulier of EmailJS niet gevonden.');
+/** Setup RSVP form: required fields, dynamic button state, and EmailJS. */
+window.initRSVP = () => {
+  const form = document.getElementById('rsvp-form');
+  if (!form || !window.emailjs) {
+    console.warn('RSVP init skipped: formulier of EmailJS niet gevonden.');
+    return;
+  }
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const thanksMsg = document.getElementById('thanks');
+  const nameInput = form.querySelector('#names');
+  const telInput = form.querySelector('#telephone');
+  const errorMsg = document.getElementById('form-error');
+
+  // Validation feedback on input (live feedback)
+  const checkFields = () => {
+    const nameFilled = !!nameInput.value.trim();
+    const telFilled = !!telInput.value.trim();
+
+    // Enable button if at least one field is filled (so they can trigger submit/error)
+    submitBtn.disabled = !(nameFilled || telFilled);
+
+    // Hide error as soon as both are filled
+    if (nameFilled && telFilled) {
+      errorMsg.style.display = 'none';
+      errorMsg.classList.remove('visible');
+    }
+  };
+
+  nameInput.addEventListener('input', checkFields);
+  telInput.addEventListener('input', checkFields);
+  checkFields();
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault(); // always prevent default
+
+    const nameFilled = !!nameInput.value.trim();
+    const telFilled = !!telInput.value.trim();
+
+    if (!nameFilled || !telFilled) {
+      // Show error below button
+      errorMsg.textContent = 'Gelieve naam en telefoonnummer in te vullen.';
+      errorMsg.style.display = 'block';
+      errorMsg.classList.add('visible');
+      // Don't proceed
       return;
     }
 
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const thanksMsg = document.getElementById('thanks');
-    const nameInput = form.querySelector('#names');
-    const telInput = form.querySelector('#telephone');
+    // Hide error
+    errorMsg.style.display = 'none';
+    errorMsg.classList.remove('visible');
 
-    // Disable submit until required fields (name + telephone) are filled
-    const updateSubmitState = () => {
-      const canSubmit = nameInput.value.trim() && telInput.value.trim();
-      submitBtn.disabled = !canSubmit;
-    };
-    nameInput.addEventListener('input', updateSubmitState);
-    telInput.addEventListener('input', updateSubmitState);
-    updateSubmitState();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Verzenden…';
+    thanksMsg?.classList.remove('visible');
 
-    form.addEventListener('submit', async e => {
-      // HTML5 validation: show built-in messages if invalid
-      if (!form.checkValidity()) {
-        e.preventDefault();
-        form.reportValidity();
-        return;
-      }
-      e.preventDefault();
-      
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Verzenden…';
-      thanksMsg?.classList.remove('visible');
+    try {
+      const result = await emailjs.sendForm(
+        'service_j12dpb9',
+        'template_p45lme8',
+        form,
+        'U7x0W_K_fgyaWVT03'
+      );
+      thanksMsg?.classList.add('visible');
+      form.reset();
+      checkFields();
+    } catch (err) {
+      alert('Er ging iets mis bij het versturen:\n' + JSON.stringify(err, null, 2));
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Bevestigen';
+    }
+  });
+};
 
-      try {
-          const result = await emailjs.sendForm(
-          'service_j12dpb9',    // jouw service-ID
-          'template_p45lme8',   // jouw template-ID
-          form,                 // de <form>-elementreferentie
-          'U7x0W_K_fgyaWVT03'   // je Public Key (vroeger: user ID)
-        );
-        console.log('EmailJS sendForm response:', result);
-        thanksMsg?.classList.add('visible');
-        form.reset();
-        updateSubmitState();
-      } catch (err) {
-        console.error('EmailJS error details:', err);
-        alert('Er ging iets mis bij het versturen:\n' + JSON.stringify(err, null, 2));
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Bevestigen';
-      }
-    });
-  };
+
 
   /** Fade-in elements on scroll into view. */
   const initFadeInOnScroll = () => {
@@ -127,7 +148,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     initNameReveal();
     initCountdown();
-    initRSVP();
+    /*initRSVP();*/
     initFadeInOnScroll();
   });
 })();
