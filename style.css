@@ -310,10 +310,10 @@ button {
 .program-lines p {
   margin: 0.5em 0;
   font-size: 1.1rem;
-  text-align: left;
+  text-align: center;
 }
 .page.program .contact {
-  text-align: left;
+  text-align: center;
   font-size: 1rem;
   line-height: 1.5;
 }
