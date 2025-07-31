@@ -8,6 +8,7 @@
     weddingDateISO: '2025-08-09T18:30:00',
     nameRevealDuration: 3000,
     countdownInterval: 1000,
+    disableRsvp: true
   };
 
   /** Remove the name-reveal section after animation. */
@@ -66,6 +67,19 @@ window.initRSVP = () => {
   const nameInput = form.querySelector('#names');
   const telInput = form.querySelector('#telephone');
   const errorMsg = document.getElementById('form-error');
+
+   // Disable form if RSVP is disabled
+  if (CONFIG.disableRsvp === true) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Registratie gesloten';
+    submitBtn.style.opacity = '0.6';
+    submitBtn.style.cursor = 'not-allowed';
+
+    nameInput.disabled = true;
+    telInput.disabled = true;
+
+    return; // ⛔ Stop verdere initialisatie
+  }
 
   // Validation feedback on input (live feedback)
   const checkFields = () => {
