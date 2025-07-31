@@ -66,6 +66,7 @@ window.initRSVP = () => {
   const thanksMsg = document.getElementById('thanks');
   const nameInput = form.querySelector('#names');
   const telInput = form.querySelector('#telephone');
+  const plusoneInput = form.querySelector('#plusoneName');
   const errorMsg = document.getElementById('form-error');
 
    // Disable form if RSVP is disabled
@@ -77,6 +78,7 @@ window.initRSVP = () => {
 
     nameInput.disabled = true;
     telInput.disabled = true;
+    plusoneInput.disabled = true; 
 
     return; // ⛔ Stop verdere initialisatie
   }
