@@ -6,9 +6,9 @@
   // Configuration
   const CONFIG = {
     weddingDateISO: '2026-08-15T16:00:00',
+    rsvpDeadlineISO: '2026-06-01T23:59:59',
     nameRevealDuration: 3000,
-    countdownInterval: 1000,
-    disableRsvp: false
+    countdownInterval: 1000
   };
 
   /** Remove the name-reveal section after animation. */
@@ -68,8 +68,9 @@ window.initRSVP = () => {
   const plusoneInput = form.querySelector('#plusoneName');
   const errorMsg = document.getElementById('form-error');
 
-   // Disable form if RSVP is disabled
-  if (CONFIG.disableRsvp === true) {
+  // Sluit registratie automatisch na de deadline
+  const isClosed = Date.now() > new Date(CONFIG.rsvpDeadlineISO).getTime();
+  if (isClosed) {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Registratie gesloten';
     submitBtn.style.opacity = '0.6';
