@@ -8,7 +8,7 @@
     weddingDateISO: '2026-08-15T16:00:00',
     nameRevealDuration: 3000,
     countdownInterval: 1000,
-    disableRsvp: true
+    disableRsvp: false
   };
 
   /** Remove the name-reveal section after animation. */
@@ -65,7 +65,6 @@ window.initRSVP = () => {
   const submitBtn = form.querySelector('button[type="submit"]');
   const thanksMsg = document.getElementById('thanks');
   const nameInput = form.querySelector('#names');
-  const telInput = form.querySelector('#telephone');
   const plusoneInput = form.querySelector('#plusoneName');
   const errorMsg = document.getElementById('form-error');
 
@@ -75,42 +74,38 @@ window.initRSVP = () => {
     submitBtn.textContent = 'Registratie gesloten';
     submitBtn.style.opacity = '0.6';
     submitBtn.style.cursor = 'not-allowed';
-
-    nameInput.disabled = true;
-    telInput.disabled = true;
-    plusoneInput.disabled = true; 
-
+    if (nameInput) nameInput.disabled = true;
+    if (plusoneInput) plusoneInput.disabled = true;
     return; // ⛔ Stop verdere initialisatie
   }
 
   // Validation feedback on input (live feedback)
   const checkFields = () => {
     const nameFilled = !!nameInput.value.trim();
-    const telFilled = !!telInput.value.trim();
+    const countFilled = !!plusoneInput.value;
 
-    // Enable button if at least one field is filled (so they can trigger submit/error)
-    submitBtn.disabled = !(nameFilled || telFilled);
+    // Enable button als naam ingevuld is
+    submitBtn.disabled = !nameFilled;
 
-    // Hide error as soon as both are filled
-    if (nameFilled && telFilled) {
+    // Hide error als naam ingevuld is
+    if (nameFilled) {
       errorMsg.style.display = 'none';
       errorMsg.classList.remove('visible');
     }
   };
 
   nameInput.addEventListener('input', checkFields);
-  telInput.addEventListener('input', checkFields);
+  plusoneInput.addEventListener('input', checkFields);
   checkFields();
 
   form.addEventListener('submit', async e => {
     e.preventDefault(); // always prevent default
 
     const nameFilled = !!nameInput.value.trim();
-    const telFilled = !!telInput.value.trim();
 
-    if (!nameFilled || !telFilled) {
+    if (!nameFilled) {
       // Show error below button
-      errorMsg.textContent = 'Gelieve naam en telefoonnummer in te vullen.';
+      errorMsg.textContent = 'Gelieve uw naam in te vullen.';
       errorMsg.style.display = 'block';
       errorMsg.classList.add('visible');
       // Don't proceed
