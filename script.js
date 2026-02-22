@@ -123,7 +123,7 @@ window.initRSVP = () => {
 
     try {
       const result = await emailjs.sendForm(
-        'service_j12dpb9',
+        'service_4x0k3r4',
         'template_p45lme8',
         form,
         'U7x0W_K_fgyaWVT03'
