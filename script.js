@@ -128,8 +128,9 @@ window.initRSVP = () => {
         form,
         'U7x0W_K_fgyaWVT03'
       );
-      thanksMsg?.classList.add('visible');
-      form.reset();
+thanksMsg?.classList.add('visible');
+      document.getElementById('download-link')?.classList.add('visible');
+      form.style.display = 'none';
       checkFields();
     } catch (err) {
       alert('Er ging iets mis bij het versturen:\n' + JSON.stringify(err, null, 2));

@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Katoenen Jubileum Zufaisa & Pieter//NL
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+DTSTART:20260815T160000
+DTEND:20260816T000000
+SUMMARY:Katoenen Jubileum Zufaisa & Pieter
+LOCATION:Hasseltse Beverzakstraat 218\, 3500 Hasselt
+DESCRIPTION:1-jarig jubileum van Zufaisa & Pieter. Zaal Heiwind\, Hasseltse Beverzakstraat 218\, 3500 Hasselt.
+END:VEVENT
+END:VCALENDAR
