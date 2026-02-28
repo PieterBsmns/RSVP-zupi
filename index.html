@@ -24,7 +24,9 @@
       <div class="content">
         <h1>U tow pasa!</h1>
         <h2>Ma a pisi á kabá.</h2>
-        <h3>Kon diíngi, kon njan, kon poolo, kon dansi nanga wi.</h3>
+        <h3>Kon poolo,<br>
+        kon diíngi, kon njan,<br>
+        kon dansi nanga wi.</h3>
       </div>
       <button class="scroll-indicator" aria-label="Scroll naar uitnodiging" onclick="scrollToNext()">
         <span class="arrow">↓</span>
@@ -122,7 +124,8 @@
     <section id="rsvp" class="page rsvp fade-in">
       <div class="content">
         <h2>Gastenlijst</h2>
-        <p class="closing-date">ℹ️ De gastenlijst sluit op <strong>1 Juni</strong>.</p> 
+        <p class="closing-date">ℹ️ Zet je naam op de gastenlijst om je komst te bevestigen. <br> 
+          De gastenlijst sluit op <strong>1 Juni</strong>.</p> 
         
         <form id="rsvp-form">
           <div class="form-group">
@@ -130,16 +133,15 @@
             <input id="names" name="names" type="text" placeholder="Bijv. André">
           </div>
           <div class="form-group">
-            <label for="plusoneName">Aantal personen:</label>
-            <input id="plusoneName" name="plusoneName" type="number" min="1" placeholder="Bijv. 3 (volwassenen + kinderen)">
+            <label for="plusoneName">Aantal personen (volwassenen + kinderen):</label>
+            <input id="plusoneName" name="plusoneName" type="number" min="1" placeholder="Bijv. 3 ">
           </div>
           <input type="hidden" name="_captcha" value="false">
           <button type="submit" id="bevestigBtn" disabled>Bevestigen</button>
         </form>
         <p id="form-error" style="color: red; margin-top: 0.5em;"></p>
-        <p id="thanks" U staat nu op de gastenlijst. <br>Bedankt voor het bevestigen!</p>
-         <!-- <p class="footer-message">Uw aanwezigheid maakt ons feest compleet!</p><br>-->
-        <p><br>Cadeautip: Jullie aanwezigheid!</p>
+        <p id="thanks" style="display: none;"></p>U staat nu op de gastenlijst. <br>Bedankt voor het bevestigen!</p>
+        <!-- <p><br>Cadeautip: ✉️</p> -->
       </div>
     </section>
 
