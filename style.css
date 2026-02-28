@@ -52,6 +52,11 @@ h2 {
   font-size: 4rem;
   font-weight: 600;
 }
+h3 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 600;
+}
 
 /* ============================
    Layout & Sections
