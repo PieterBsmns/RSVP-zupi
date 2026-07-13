@@ -6,7 +6,7 @@
   // Configuration
   const CONFIG = {
     weddingDateISO: '2026-08-15T16:00:00',
-    rsvpDeadlineISO: '2026-07-05T23:59:59',
+    rsvpDeadlineISO: '2026-07-19T23:59:59',
     nameRevealDuration: 3000,
     countdownInterval: 1000
   };
